@@ -1,0 +1,86 @@
+<div class="grid">
+  <div class="flex flex-wrap card-container blue-container">
+    <div class="col-12 md:col-12 lg:col-3">
+      <button pButton pRipple type="button" label="Success" class="p-button-outlined p-button-success" (click)="AddEntretien()"></button>
+</div>
+    <div class="col-12">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12">
+            <label for="Immatricule" class="font-medium">Immatricule</label
+            ><p-dropdown [options]="Immatricules" [(ngModel)]="Immatriculeselect" optionLabel="Immatricule"></p-dropdown>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="dete">date</label>
+            <p-calendar
+              [(ngModel)]="Date_Entretien"
+              [showIcon]="true"
+              inputId="date"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="TypeE" class="font-medium">Type d'entretien:</label
+              ><input [(ngModel)]="this.Entretien.Type_de_Entretien"
+                name="TypeE"
+                type="text"
+                pinputtext=""
+                class="p-inputtext p-component p-element"
+              />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="KmActuel" class="font-medium">Km Actuel</label
+              ><input [(ngModel)]="this.Entretien.Km_Actuel"
+                name="KmActuel"
+                type="text"
+                pinputtext=""
+                class="p-inputtext p-component p-element"
+              />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Cout" class="font-medium">Cout</label
+              ><input [(ngModel)]="this.Entretien.Cout"
+                name="Cout"
+                type="text"
+                pinputtext=""
+                class="p-inputtext p-component p-element"
+              />
+          </div>
+          <div class="field mb-4 col-12">
+            <label for="Observation" class="font-medium">Observation:</label
+            >
+            <br>
+            <textarea [(ngModel)]="this.Entretien.Observation" pInputTextarea name="Observation" style="width: 100%; height: 100px;"></textarea>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <p-table [value]="Entretiens" responsiveLayout="scroll">
+    <ng-template  pTemplate="header">
+      <tr>
+        <th>Immatricule</th>
+        <th>Km_Actuel</th>
+        <th>Date_Entretien</th>
+        <th>Type_de_Entretien</th>
+        <th>Cout</th>
+        <th>Observation</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-Entretien>
+      <tr>
+        <td>{{ Entretien.Immatricule }}</td>
+        <td>{{ Entretien.Km_Actuel }}</td>
+        <td>{{ Entretien.Date_Entretien }}</td>
+        <td>{{ Entretien.Type_de_Entretien }}</td>
+        <td>{{ Entretien.Cout }}</td>
+        <td>{{ Entretien.Observation }}</td>
+        <td>
+          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="updateEntretien()"></button>
+          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delet(Entretien.Immatricule)"></button>
+      </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

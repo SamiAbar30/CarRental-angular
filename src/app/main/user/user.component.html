@@ -1,0 +1,31 @@
+
+<button  pButton pRipple type="button" label="Primary" class="p-button-outlined" (click)="openNew()"></button>
+<p-table  [value]="users" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>CIN</th>
+          <th>Nomuser</th>
+          <th>pass</th>
+          <th>prenomuser</th>
+  
+          <th></th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-usee>
+    <tr>
+      <td>{{usee.CIN}}</td>
+      <td>{{usee.Nomuser}}</td>
+      <td>{{usee.pass}}</td>
+      <td>{{usee.prenomuser}}</td>
+
+      <td>
+        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="edit(usee)"></button>
+        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delet(usee.CIN)"></button>
+    </td>
+    </tr>
+</ng-template>
+</p-table>
+
+<p-dialog [(visible)]="productDialog"  header="user Details" [modal]="true" styleClass="p-fluid">
+  <app-adduser [item]="user" [Numpi]="Numpi"></app-adduser>
+</p-dialog>

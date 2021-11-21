@@ -1,0 +1,192 @@
+<div class="surface-section px-4 py-4 md:px-4 lg:px-4">
+  <div class="grid">
+    <div class="col-12 lg:col-2">
+      <div class=" flex flex-wrap card-container" >
+        <div class="flex align-items-center" style="width: 120px;" >
+              <div class="container">
+                <small class="flex align-items-center justify-content-center" >widentiteimg_recto</small>
+                <div class="avatar-upload">
+                  <label for="imageUpload1">
+                    <div class="avatar-edit">
+                        <input  type='file' id="imageUpload1" accept=".png, .jpg, .jpeg" (change)="onimage1($event)" />
+                    </div>
+                    <div class="avatar-preview">
+                        <div id="imagePreview" style="background-image: url({{!image1?itemimage1:image1|async}});">
+                        </div>
+                    </div>
+                  </label>
+                </div>
+
+            </div>
+        </div>
+        <div class="flex align-items-center"style="width: 120px;" >
+          <div class="container">
+            <small class="flex align-items-center justify-content-center" >dentiteimg_verso</small>
+            <div class="avatar-upload">
+              <label for="imageUpload2">
+                <div class="avatar-edit">
+                    <input type='file' id="imageUpload2" accept=".png, .jpg, .jpeg" (change)="onimage2($event)" />
+
+                </div>
+                <div class="avatar-preview">
+                    <div id="imagePreview" style="background-image: url({{!image2?itemimage2:image2|async}});">
+                    </div>
+                </div>
+              </label>
+            </div>
+
+        </div>
+        </div>
+        <div class="flex align-items-center" style="width: 120px;">
+          <div class="container">
+            <small class="flex align-items-center justify-content-center" >permi_recto</small>
+            <div class="avatar-upload">
+              <label for="imageUpload3">
+                <div class="avatar-edit">
+                    <input type='file' id="imageUpload3" accept=".png, .jpg, .jpeg" (change)="onimage3($event)" />
+
+                </div>
+                <div class="avatar-preview">
+                    <div id="imagePreview" style="background-image: url({{!image3?itemimage3:image3|async}});">
+                    </div>
+                </div>
+              </label>
+            </div>
+
+        </div>
+        </div>
+        <div class="flex align-items-center" style="width: 120px;">
+        <div class="container">
+        <small class="flex align-items-center justify-content-center" >permi_verso</small>
+        <div class="avatar-upload">
+          <label for="imageUpload4">
+            <div class="avatar-edit">
+                <input type='file' id="imageUpload4" accept=".png, .jpg, .jpeg" (change)="onimage4($event)" />
+
+            </div>
+            <div class="avatar-preview">
+                <div id="imagePreview" style="background-image: url({{!image4?itemimage4:image4|async}});">
+                </div>
+            </div>
+          </label>
+        </div>
+
+        </div>
+        </div>
+        <div class="flex align-items-center"style="width: 120px;"  >
+              <div class="container">
+                <small class="flex align-items-center justify-content-center" >passeport_recto</small>
+                <div class="avatar-upload">
+                  <label for="imageUpload5">
+                    <div class="avatar-edit">
+                        <input type='file' id="imageUpload5" accept=".png, .jpg, .jpeg" (change)="onimage5($event)" />
+
+                    </div>
+                    <div class="avatar-preview">
+                        <div id="imagePreview" style="background-image: url({{!image5?itemimage5:image5|async}});">
+                        </div>
+                    </div>
+                  </label>
+                </div>
+
+            </div>
+        </div>
+            </div>
+    </div>
+    <div class="col-12 lg:col-10">
+      <p-fieldset legend="piece identite">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Immatricule" class="font-medium">Immatricule</label
+            ><input  [(ngModel)]="this.item.Immatricule"
+              id="Immatricule"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Marque" class="font-medium">Marque</label
+            ><input  [(ngModel)]="this.item.Marque"
+              id="Marque"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Model" class="font-medium">Model</label
+            ><input  [(ngModel)]="this.item.Model"
+              id="Model"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="DateMEC" class="font-medium">Date MEC</label>
+            <p-calendar [(ngModel)]="Date_MEC" [showIcon]="true" inputId="DateMEC"></p-calendar>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Kilometrage" class="font-medium">Kilometrage</label
+            ><input  [(ngModel)]="this.item.Kilometrage"
+              name="Kilometrage"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="kminclus" class="font-medium">Km inclus</label
+            ><input  [(ngModel)]="this.item.KM_inclus"
+              name="kminclus"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Disponibilite" class="font-medium">Disponibilite</label
+            ><p-dropdown optionLabel="name"  [options]="Disponibilite"
+            [(ngModel)]="selectDisponibilite"></p-dropdown>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Carburant" class="font-medium">Carburant</label
+            >
+            <p-dropdown optionLabel="name"  [options]="Carburant"
+            [(ngModel)]="selectCarburant"></p-dropdown>
+          </div>
+          <div class="field mb-4 col-12">
+            <label for="prix" class="font-medium">Prix</label
+            ><input  [(ngModel)]="this.item.Prix"
+              name="prix"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+     <div >
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Add"
+        class="p-button-outlined p-button-success"
+        (click)="AddVehicules()"
+        *ngIf="!Numpi"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Update"
+        class="p-button-outlined p-button-success"
+        (click)="updateVehicules()"
+        *ngIf="Numpi"
+      ></button>
+    </div>
+    </div>
+  </div>
+</div>

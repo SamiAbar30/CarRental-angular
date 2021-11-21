@@ -1,0 +1,49 @@
+<p-fieldset legend="socitete">
+  <div class="grid formgrid p-fluid">
+    <div class="field mb-4 col-12 md:col-6">
+      <label for="CIN" class="font-medium">CIN</label
+      ><input id="CIN" type="text" pInputText [(ngModel)]="this.item.CIN" />
+    </div>
+    <div class="field mb-4 col-12 md:col-6">
+      <label for="Nomuser" class="font-medium">Nomuser</label
+      ><input
+        name="Nomuser"
+        type="text"
+        pInputText
+        [(ngModel)]="this.item.Nomuser"
+      />
+    </div>
+    <div class="field mb-4 col-12 md:col-6">
+      <label for="pass" class="font-medium">pass</label
+      ><input name="pass" type="text" pInputText [(ngModel)]="this.item.pass" />
+    </div>
+    <div class="field mb-4 col-12 md:col-6">
+      <label for="prenomuser" class="font-medium">prenomuser</label
+      ><input
+        name="prenomuser"
+        type="text"
+        pInputText
+        [(ngModel)]="this.item.prenomuser"
+      />
+    </div>
+  </div>
+</p-fieldset>
+
+<button
+  pButton
+  pRipple
+  type="button"
+  label="Add"
+  class="p-button-outlined p-button-success"
+  *ngIf="!Numpi"
+  (click)="Adduser()"
+></button>
+<button
+  pButton
+  pRipple
+  type="button"
+  label="Update"
+  class="p-button-outlined p-button-success"
+  *ngIf="Numpi"
+  (click)="updateuser()"
+></button>

@@ -1,0 +1,79 @@
+
+<div class="card p-2">
+  <p-toolbar styleClass="p-mb-4">
+      <ng-template pTemplate="left">
+          <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+      </ng-template>
+
+      <ng-template pTemplate="right">
+
+          <div class="p-d-flex">
+            <button
+          type="button"
+          pButton
+          pRipple
+          icon="pi pi-file-excel"
+          class="p-button-success p-mr-2"
+          pTooltip="XLS"
+          tooltipPosition="bottom"
+          (click)="PrintXLS()"
+        ></button>  </div>
+
+      </ng-template>
+  </p-toolbar>
+
+  <p-table  id="excel-table" #dt  [value]="Cliants" [rows]="5" [paginator]="true" [globalFilterFields]="['Clienttype','Numpi','Nom','Prenom','Age','Tel']" responsiveLayout="scroll"
+       [rowHover]="true" dataKey="id"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex p-ai-center p-jc-between">
+            <h5 class="p-m-0">Manage Products</h5>
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Search..." />
+            </span>
+        </div>
+    </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
+
+              <th pSortableColumn="Numpi">id <p-sortIcon field="Numpi"></p-sortIcon></th>
+              <th pSortableColumn="Clienttype">Clienttype <p-sortIcon field="Clienttype"></p-sortIcon></th>
+              <th pSortableColumn="Nom">Nom <p-sortIcon field="Nom"></p-sortIcon></th>
+              <th pSortableColumn="Prenom">Prenom <p-sortIcon field="Prenom"></p-sortIcon></th>
+              <th pSortableColumn="Age">Age <p-sortIcon field="Age"></p-sortIcon></th>
+              <th pSortableColumn="Tel">Tel <p-sortIcon field="Tel"></p-sortIcon></th>
+              <th>Status</th>
+              <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-Client>
+          <tr>
+
+              <td>{{Client.Numpi}}</td>
+              <td>{{Client.Clienttype}}</td>
+              <td>{{Client.Nom}}</td>
+              <td>{{Client.Prenom}}</td>
+              <td>{{Client.Age}}</td>
+              <td>{{Client.Tel}}</td>
+            <td>
+                  <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="edit(Client)"></button>
+                  <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delet(Client.Numpi)"></button>
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+          <div class="p-d-flex p-ai-center p-jc-between">
+              In total there are {{Cliants ? Cliants.length : 0 }} Cliants.
+          </div>
+      </ng-template>
+  </p-table>
+</div>
+
+<p-dialog [(visible)]="productDialog"  header="Cliant Details" [modal]="true" styleClass="p-fluid">
+  <app-createclient [item]="Cliant" [Numpi]="Numpi"></app-createclient>
+</p-dialog>
+
+
+
+

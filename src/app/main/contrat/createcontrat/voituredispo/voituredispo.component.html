@@ -1,0 +1,44 @@
+<div class="card">
+  <h5>Single</h5>
+  <p>
+    In single mode, a row is selected on click event of a row. If the row is
+    already selected then the row gets unselected.
+  </p>
+  <p-table
+    [value]="Vehicules"
+    selectionMode="single"
+    [(selection)]="Vehicule"
+    dataKey="code"
+    responsiveLayout="scroll"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th></th>
+        <th>Immatricule</th>
+        <th>Marque</th>
+        <th>Model</th>
+        <th>Kilometrage</th>
+        <th>Prix</th>
+        <th>Carburant</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-Vehicule>
+      <tr *ngIf="Vehicule.Disponibilite == 'oui'">
+        <button
+          pButton
+          pRipple
+          label=""
+          icon="pi pi-check"
+          class="p-button-text"
+          (click)="submit(Vehicule)"
+        ></button>
+        <td>{{ Vehicule.Immatricule }}</td>
+        <td>{{ Vehicule.Marque }}</td>
+        <td>{{ Vehicule.Model }}</td>
+        <td>{{ Vehicule.Kilometrage }}</td>
+        <td>{{ Vehicule.Prix }}</td>
+        <td>{{ Vehicule.Carburant }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

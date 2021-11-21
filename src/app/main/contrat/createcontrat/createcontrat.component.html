@@ -1,0 +1,283 @@
+<div class="grid">
+  <div class="flex flex-wrap card-container blue-container">
+    <div class="col-12">
+      <div class="grid align-items-center justify-content-center">
+        <div class="col-12 md:col-12 lg:col-3">
+          <label for="datecontrat" class="font-medium">date contrat</label>
+          <p-calendar
+            [(ngModel)]="Datecontrat"
+            [showIcon]="true"
+            inputId="datecontrat"
+          ></p-calendar>
+        </div>
+        <div class="col-12 md:col-12 lg:col-3">
+          <label for="realisépar" class="font-medium">realisé par</label
+          ><input
+            name="realisépar"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+          />
+        </div>
+        <div class="col-12 md:col-12 lg:col-3">
+          <button
+            pButton
+            pRipple
+            type="button"
+            label="Success"
+            class="p-button-outlined p-button-success"
+            (click)="Success()"
+          ></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <p-fieldset legend="Assurance">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="delevrele">marque</label>
+            <input
+              [(ngModel)]="vehicule.Marque"
+              name="alert"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="Success"
+              class="p-button-outlined p-button-success"
+              (click)="openNew()"
+            ></button>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="immatricule">immatricule</label>
+            <input
+              [(ngModel)]="vehicule.Immatricule"
+              name="immatricule"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Kmactuel" class="font-medium">km actuel</label
+            ><input
+              [(ngModel)]="vehicule.Kilometrage"
+              name="Kmactuel"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="col-6">
+      <p-fieldset legend="Assurance">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="delevrele">client</label>
+            <input
+              [(ngModel)]="cliant.Numpi"
+              name="alert"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="Success"
+              class="p-button-outlined p-button-success"
+              (click)="openNew1()"
+            ></button>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="delevrele">2eme conducteur</label>
+            <input
+              [(ngModel)]="cliant2.Numpi"
+              name="alert"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="Success"
+              class="p-button-outlined p-button-success"
+              (click)="openNew2()"
+            ></button>
+            <button
+              pButton
+              pRipple
+              type="button"
+              label="Danger"
+              class="p-button-outlined p-button-danger"
+            ></button>
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="col-6">
+      <p-fieldset legend="Carte grise">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12">
+            <label for="deree" class="font-medium">duree jours</label
+            ><input
+              [(ngModel)]="Contrats.Duree"
+              name="deree"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+              (ngModelChange)="OnChangeduree($event)"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="delevrele">date depart</label>
+            <p-calendar
+              [(ngModel)]="Duree_depart"
+              [showIcon]="true"
+              inputId="datedebut"
+              (ngModelChange)="OnChangeDuree_depart($event)"
+            ></p-calendar>
+          </div>
+
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="dateroutur">date retour</label>
+            <p-calendar
+              [(ngModel)]="Duree_retour"
+              [showIcon]="true"
+              inputId="dateroutur"
+              (ngModelChange)="OnChangeDuree_retour($event)"
+            ></p-calendar>
+          </div>
+
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="lieuL" class="font-medium">lieu de laivraison</label
+            ><input
+              [(ngModel)]="Contrats.Lieu_de_livraison"
+              name="lieuL"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="lieuR" class="font-medium">lieu de reour</label
+            ><input
+              [(ngModel)]="Contrats.Lieu_de_retour"
+              name="lieuR"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="col-6">
+      <p-fieldset legend="autorisation de circulation">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="prix" class="font-medium">prix par jour</label
+            ><input
+              [(ngModel)]="Contrats.Prix"
+              name="prix"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+              (ngModelChange)="OnChangeprix($event)"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="retour" class="font-medium"
+              >retour alert avant (x jours)</label
+            ><input
+              [(ngModel)]="Contrats.alert_rotour"
+              name="retour"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="montantP" class="font-medium">montant a payer</label
+            ><input
+            [(ngModel)]="montantapayer"
+              name="montantP"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+              (ngModelChange)="OnChangemontantP($event)"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="reste" class="font-medium">le reste du montant</label
+            ><input
+              [(ngModel)]=" this.Contrats.restmontant"
+              name="reste"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12">
+            <label for="total" class="font-medium">total</label
+            ><input
+              [(ngModel)]="this.Contrats.Total"
+              name="total"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+  </div>
+</div>
+<p-dialog
+  [(visible)]="Dialog1"
+  header=" Details"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <app-voituredispo
+    (Vehicule)="outputvehicule($event)"
+    (dialog)="outputDialog($event)"
+  ></app-voituredispo>
+</p-dialog>
+<p-dialog
+  [(visible)]="Dialog2"
+  header=" Details"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <app-cliantdispo
+    (Client)="outputcliant1($event)"
+    (dialog)="outputDialog($event)"
+  ></app-cliantdispo>
+</p-dialog>
+<p-dialog
+  [(visible)]="Dialog3"
+  header=" Details"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+  <app-cliantdispo
+    (Client)="outputcliant2($event)"
+    (dialog)="outputDialog($event)"
+  ></app-cliantdispo>
+</p-dialog>

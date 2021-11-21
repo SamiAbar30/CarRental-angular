@@ -1,0 +1,73 @@
+<p-dropdown
+  [options]="items"
+  [(ngModel)]="item"
+  placeholder="Select Item"
+  [virtualScroll]="true"
+  [itemSize]="31"
+  [filter]="false"
+  optionLabel="label"
+  class="flex align-items-center justify-content-center"
+  (onChange)="load()"
+
+></p-dropdown>
+<ng-template pTemplate="right">
+  <div class="p-d-flex">
+    <button
+      type="button"
+      pButton
+      pRipple
+      icon="pi pi-file-excel"
+      class="p-button-success p-mr-2"
+      pTooltip="XLS"
+      tooltipPosition="bottom"
+      (click)="PrintXLS()"
+    ></button>
+
+  </div>
+</ng-template>
+<p-table  id="excel-table" [value]="Statistiques" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Immatricule</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>Total</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-Statistique>
+    <tr>
+      <td>{{ Statistique.Immatricule }}</td>
+      <td>{{ Statistique[1] ?? 0 }}</td>
+      <td>{{ Statistique[2] ?? 0 }}</td>
+      <td>{{ Statistique[3] ?? 0 }}</td>
+      <td>{{ Statistique[4] ?? 0 }}</td>
+      <td>{{ Statistique[5] ?? 0 }}</td>
+      <td>{{ Statistique[6] ?? 0 }}</td>
+      <td>{{ Statistique[7] ?? 0 }}</td>
+      <td>{{ Statistique[8] ?? 0 }}</td>
+      <td>{{ Statistique[9] ?? 0 }}</td>
+      <td>{{ Statistique[10] ?? 0 }}</td>
+      <td>{{ Statistique[11] ?? 0 }}</td>
+      <td>{{ Statistique[12] ?? 0 }}</td>
+      <td>{{ Statistique.total ?? 0 }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+<div class="flex align-items-center justify-content-center">
+  <p-chart
+    type="pie"
+    [data]="data"
+    [options]="chartOptions"
+    style="width: 300px"
+  ></p-chart>
+</div>

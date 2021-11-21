@@ -1,0 +1,181 @@
+<div class="grid">
+  <div class="flex flex-wrap card-container blue-container">
+    <div class="col-12">
+
+        <div class="grid align-items-center justify-content-center">
+          <div class="col-12 md:col-12 lg:col-3">
+            <label for="immatricule" class="font-medium">immatricule</label>
+            <input
+            [value]="Immatricule"
+              name="immatricule"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="col-12 md:col-12 lg:col-3">
+            <button pButton pRipple type="button" label="Success" class="p-button-outlined p-button-success" (click)="addpapier()"></button> </div>
+
+      </div>
+    </div>
+    <div class="col-6">
+      <p-fieldset legend="Assurance">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="delevrele">date debut</label>
+            <p-calendar
+              [(ngModel)]="delevreleAssurance"
+              [showIcon]="true"
+              inputId="icon"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="datefin">date fin</label>
+            <p-calendar
+              [(ngModel)]="datefinAssurance"
+              [showIcon]="true"
+              inputId="icon"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12">
+            <label for="alert" class="font-medium">alert avant(jours)</label
+            ><input [(ngModel)]="this.papier.alertAssurance"
+              name="alertAssurance"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="col-6">
+      <p-fieldset legend="visite tecnique">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="delevrele">date debut</label>
+            <p-calendar
+              [(ngModel)]="delevrelevisite"
+              [showIcon]="true"
+              inputId="icon"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="datefin">date fin</label>
+            <p-calendar
+              [(ngModel)]="datefinvisite"
+              [showIcon]="true"
+              inputId="icon"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12">
+            <label for="alert" class="font-medium">alert avant(jours)</label
+            ><input [(ngModel)]="this.papier.alertvisite"
+              name="alertvisite"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="col-6">
+      <p-fieldset legend="Carte grise">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="delevrele">date debut</label>
+            <p-calendar
+              [(ngModel)]="delevrelegrise"
+              [showIcon]="true"
+              inputId="datedebut"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="datefin">date fin</label>
+            <p-calendar
+              [(ngModel)]="datefingrise"
+              [showIcon]="true"
+              inputId="datefin"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12">
+            <label for="alert" class="font-medium">alert avant(jours)</label
+            ><input [(ngModel)]="this.papier.alertgrise"
+              name="grise"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="col-6">
+      <p-fieldset legend="autorisation de circulation">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="delevrele">date debut</label>
+            <p-calendar
+              [(ngModel)]="delevreleautoristion"
+              [showIcon]="true"
+              inputId="datedebut"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="datefin">date fin</label>
+            <p-calendar
+              [(ngModel)]="datefinautoristion"
+              [showIcon]="true"
+              inputId="datefin"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12">
+            <label for="alert" class="font-medium">alert avant(jours)</label
+            ><input
+            [(ngModel)]="this.papier.alertautoristion"
+              name="alert"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+  </div>
+</div>
+
+<div>
+  <p-table [value]="papiers" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>immatricule</th>
+        <th>date_debut_assurance</th>
+        <th>date_fin_assurance</th>
+        <th>date_debut_grise</th>
+        <th>date_fin_grise</th>
+        <th>date_debut_visite</th>
+        <th>date_fin_visite</th>
+        <th>date_debut_autoristion</th>
+        <th>date_fin_autoristion</th>
+
+
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-papier>
+      <tr>
+        <td>{{ papier.immatricule }}</td>
+        <td>{{ papier.date_debut_assurance }}</td>
+        <td>{{ papier.date_fin_assurance }}</td>
+        <td>{{ papier.date_debut_grise }}</td>
+        <td>{{ papier.date_fin_grise }}</td>
+        <td>{{ papier.date_debut_visite }}</td>
+        <td>{{ papier.date_fin_visite }}</td>
+        <td>{{ papier.date_debut_autoristion }}</td>
+        <td>{{ papier.date_fin_autoristion }}</td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

@@ -1,0 +1,14 @@
+<p-table [value]="this.vehicules" dataKey="id" responsiveLayout="scroll">
+<ng-template pTemplate="header">
+  <tr>
+    <th>immatricule</th>
+    <th>Marque</th>
+  </tr>
+</ng-template>
+<ng-template pTemplate="body" let-vehicule>
+  <tr>
+    <td>{{ vehicule.Immatricule }}</td>
+    <td>{{ vehicule.Marque }}</td>
+  </tr>
+</ng-template>
+</p-table>

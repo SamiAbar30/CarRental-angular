@@ -1,0 +1,352 @@
+<div class="surface-section px-2 py-2 md:px-2 lg:px-2">
+  <div class="grid">
+    <div class="col-12 lg:col-2" >
+    <div class=" flex flex-wrap card-container" >
+<div class="flex align-items-center" style="width: 120px;" >
+      <div class="container">
+        <small class="flex align-items-center justify-content-center" >widentiteimg_recto</small>
+        <div class="avatar-upload">
+          <label for="imageUpload1">
+            <div class="avatar-edit">
+                <input type='file' id="imageUpload1" accept=".png, .jpg, .jpeg" (change)="onimage1($event)" />
+            </div>
+            <div class="avatar-preview">
+                <div id="imagePreview" style="background-image: url({{!image1?itemimage1:image1|async}});">
+                </div>
+            </div>
+          </label>
+        </div>
+
+    </div>
+</div>
+<div class="flex align-items-center"style="width: 120px;" >
+  <div class="container">
+    <small class="flex align-items-center justify-content-center" >dentiteimg_verso</small>
+    <div class="avatar-upload">
+      <label for="imageUpload2">
+        <div class="avatar-edit">
+            <input type='file' id="imageUpload2" accept=".png, .jpg, .jpeg" (change)="onimage2($event)" />
+
+        </div>
+        <div class="avatar-preview">
+            <div id="imagePreview" style="background-image: url({{!image2?itemimage2:image2|async}});">
+            </div>
+        </div>
+      </label>
+    </div>
+
+</div>
+</div>
+<div class="flex align-items-center" style="width: 120px;">
+  <div class="container">
+    <small class="flex align-items-center justify-content-center" >permi_recto</small>
+    <div class="avatar-upload">
+      <label for="imageUpload3">
+        <div class="avatar-edit">
+            <input type='file' id="imageUpload3" accept=".png, .jpg, .jpeg" (change)="onimage3($event)" />
+
+        </div>
+        <div class="avatar-preview">
+            <div id="imagePreview" style="background-image: url({{!image3?itemimage3:image3|async}});">
+            </div>
+        </div>
+      </label>
+    </div>
+
+</div>
+</div>
+<div class="flex align-items-center" style="width: 120px;">
+<div class="container">
+<small class="flex align-items-center justify-content-center" >permi_verso</small>
+<div class="avatar-upload">
+  <label for="imageUpload4">
+    <div class="avatar-edit">
+        <input type='file' id="imageUpload4" accept=".png, .jpg, .jpeg" (change)="onimage4($event)" />
+
+    </div>
+    <div class="avatar-preview">
+        <div id="imagePreview" style="background-image: url({{!image4?itemimage4:image4|async}});">
+        </div>
+    </div>
+  </label>
+</div>
+
+</div>
+</div>
+<div class="flex align-items-center"style="width: 120px;"  >
+      <div class="container">
+        <small class="flex align-items-center justify-content-center" >passeport_recto</small>
+        <div class="avatar-upload">
+          <label for="imageUpload5">
+            <div class="avatar-edit">
+                <input type='file' id="imageUpload5" accept=".png, .jpg, .jpeg" (change)="onimage5($event)" />
+
+            </div>
+            <div class="avatar-preview">
+                <div id="imagePreview" style="background-image: url({{!image5?itemimage5:image5|async}});">
+                </div>
+            </div>
+          </label>
+        </div>
+
+    </div>
+</div>
+<div class="flex align-items-center" style="width: 120px;">
+  <div class="container">
+    <small class="flex align-items-center justify-content-center" >passeport_verso</small>
+    <div class="avatar-upload">
+      <label for="imageUpload6">
+        <div class="avatar-edit">
+            <input type='file' id="imageUpload6" accept=".png, .jpg, .jpeg" (change)="onimage6($event)" />
+
+        </div>
+        <div class="avatar-preview">
+            <div id="imagePreview" style="background-image: url({{!image6?itemimage6:image6|async}});">
+            </div>
+        </div>
+      </label>
+    </div>
+
+</div>
+</div>
+    </div>
+  </div>
+    <div class="col-12 lg:col-10">
+      <p-fieldset legend="client-type">
+        <div class="p-field-radiobutton">
+          <input type="radio" name="radio" id="" value="particulier" [(ngModel)]="this.item.Clienttype" />
+          <label for="city1">particulier</label>
+          <input type="radio" name="radio" id="" value="professionnel"  [(ngModel)]="this.item.Clienttype"/>
+          <label for="city2">professionnel</label>
+        </div>
+      </p-fieldset>
+      <p-fieldset legend="Conducteur">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12">
+            <label for="bio" class="font-medium">sexe</label>
+            <p-dropdown
+              [options]="sexe"
+              [(ngModel)]="selectedSexe"
+              placeholder="Select a City"
+              optionLabel="name"
+              [showClear]="true"
+            ></p-dropdown>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="nome" class="font-medium">nome</label
+            ><input
+              name="nome"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.Nom"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="prenom" class="font-medium">prenom</label
+            ><input
+              name="prenom"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.Prenom"
+            />
+          </div>
+          <div class="field mb-4 col-12">
+            <label for="datenaissance">date naissance</label>
+            <p-calendar
+              [(ngModel)]="datenaissance"
+              [showIcon]="true"
+              inputId="icon"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="age" class="font-medium">age</label
+            ><input
+              name="age"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.Age"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="lieudenaissance" class="font-medium"
+              >lieu de naissance</label
+            ><input
+              name="lieudenaissance"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.Lieu_de_naissance"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+      <p-fieldset legend="piece identite">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="bio" class="font-medium">type PI</label>
+            <p-dropdown
+            [options]="type_PI"
+            [(ngModel)]="selectedtype_PI"
+            placeholder="Select a Type"
+            optionLabel="name"
+            [showClear]="true"
+          ></p-dropdown>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="numpi" class="font-medium">num PI</label
+            ><input name="numpi" type="text" pInputText [(ngModel)]="item.Numpi" />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="validite">validite</label>
+            <p-calendar
+              [(ngModel)]="validite"
+              [showIcon]="true"
+              inputId="icon"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="devlvea" class="font-medium">delevre a</label
+            ><input
+              name="devlvea"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.delivre_a"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+      <p-fieldset legend="permis de conduire">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12">
+            <label for="numpermis" class="font-medium">Num permis</label
+            ><input
+              name="numpermis"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.Numpermis"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="delevrele">delevre le</label>
+            <p-calendar
+              [(ngModel)]="delevrele"
+              [showIcon]="true"
+              inputId="icon"
+            ></p-calendar>
+          </div>
+
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Validite_pi">Validite_pi</label>
+            <p-calendar
+              [(ngModel)]="Validite_pi"
+              [showIcon]="true"
+              inputId="icon"
+            ></p-calendar>
+          </div>
+          <div class="field mb-4 col-12">
+            <label for="Delivrer_a_pi" class="font-medium">Delivrer_a_pi</label
+            ><input
+              name="Delivrer_a_pi"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.Delivrer_a_pi"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+      <p-fieldset legend="contact">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12">
+            <h5>adresse</h5>
+            <textarea
+              rows="5"
+              style="width: 50%"
+              pInputTextarea
+              autoResize="autoResize"
+              name="adresse"
+              [(ngModel)]="this.item.Adresse"
+            ></textarea>
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="tel" class="font-medium">tel</label
+            ><input
+              name="tel"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.Tel"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="email" class="font-medium">email</label
+            ><input id="email" type="text" pInputText />
+          </div>
+        </div>
+      </p-fieldset>
+      <p-fieldset legend="socitete" *ngIf="this.item.Clienttype == 'professionnel'">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="societe" class="font-medium">societe</label
+            ><input
+              id="societe"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.Societe"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="adressefac" class="font-medium"
+              >adresse de facturation</label
+            ><input
+              name="adressefac"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.ADresse_de_facturation"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="ICE" class="font-medium">ICE</label
+            ><input
+              name="ICE"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.ICE"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Contact" class="font-medium">Contact</label
+            ><input
+              name="Contact"
+              type="text"
+              pInputText
+              [(ngModel)]="this.item.Contact"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+      <div class="p-field-radiobutton">
+        <h3>list noire</h3>
+        <label for="oui">oui</label>
+        <br />
+        <input type="checkbox"   [(ngModel)]="this.item.Listenoir">
+      </div>
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Add"
+        class="p-button-outlined p-button-success"
+        (click)="AddClients()"
+        *ngIf="!Numpi"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Update"
+        class="p-button-outlined p-button-success"
+        (click)="updateClients()"
+        *ngIf="Numpi"
+      ></button>
+
+    </div>
+  </div>
+</div>

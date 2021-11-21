@@ -1,0 +1,188 @@
+<div class="grid">
+  <div class="flex flex-wrap card-container blue-container">
+    <div class="col-12">
+      <div class="flex align-items-center">
+        <div class="flex align-items-center" style="width: 120px">
+          <div class="container">
+            <small class="flex align-items-center justify-content-center"
+              >widentiteimg_recto</small
+            >
+            <div class="avatar-upload">
+              <label for="imageUpload1">
+                <div class="avatar-edit">
+                  <input
+                    type="file"
+                    id="imageUpload1"
+                    accept=".png, .jpg, .jpeg"
+                    (change)="onimage($event)"
+                  />
+                </div>
+                <div class="avatar-preview">
+                  <div
+                    id="imagePreview"
+                    style="background-image: url({{!image?itemimage:image|async}});" ></div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <p-fieldset legend="Informations de l'gence de location de voitures">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="NomAgence" class="font-medium">NomAgence</label
+            ><input
+              [(ngModel)]="this.Agences[0].NomAgence"
+              id="NomAgence"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Adresse" class="font-medium">Adresse</label
+            ><input
+              [(ngModel)]="this.Agences[0].Adresse"
+              id="Adresse"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Ville" class="font-medium">Ville</label
+            ><input
+              [(ngModel)]="this.Agences[0].Ville"
+              id="Ville"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="CodeP" class="font-medium">Code postal</label
+            ><input
+              [(ngModel)]="this.Agences[0].Code_postale"
+              id="CodeP"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Tel" class="font-medium">Tel</label
+            ><input
+              [(ngModel)]="this.Agences[0].Tel"
+              id="Tel"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="email" class="font-medium">E-mail</label
+            ><input
+              [(ngModel)]="this.Agences[0].E_mail"
+              id="email"
+              type="email"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="GSM" class="font-medium">GSM</label
+            ><input
+              [(ngModel)]="this.Agences[0].Gsm"
+              id="GSM"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Fax" class="font-medium">Fax</label
+            ><input
+              [(ngModel)]="this.Agences[0].Fax"
+              id="Fax"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="col-6">
+      <p-fieldset legend="Informations de facturation">
+        <div class="grid formgrid p-fluid">
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="Patent" class="font-medium">Patant</label
+            ><input
+              [(ngModel)]="this.Agences[0].Patant"
+              id="Patent"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="IF" class="font-medium">IF</label
+            ><input
+              [(ngModel)]="this.Agences[0].IF_F"
+              id="IF"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="RC" class="font-medium">RC</label
+            ><input
+              [(ngModel)]="this.Agences[0].RC"
+              id="RC"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="ICE" class="font-medium">ICE</label
+            ><input
+              [(ngModel)]="this.Agences[0].ICE"
+              id="ICE"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+          <div class="field mb-4 col-12 md:col-6">
+            <label for="CNSS" class="font-medium">CNSS</label
+            ><input
+              [(ngModel)]="this.Agences[0].CNSS"
+              id="CNSS"
+              type="text"
+              pinputtext=""
+              class="p-inputtext p-component p-element"
+            />
+          </div>
+        </div>
+      </p-fieldset>
+    </div>
+    <div class="col-12">
+      <div class="grid align-items-center justify-content-center">
+        <div class="col-12 md:col-12 lg:col-3">
+          <button
+            pButton
+            pRipple
+            type="button"
+            label="update"
+            class="p-button-outlined p-button-success"
+            (click)="updateAgence()"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,349 @@
+<div class="flex flex-column flex-auto">
+  <div class="">
+    <div class="grid">
+      <div class="col-12 lg:col-6 xl:col-3">
+        <div class="surface-card shadow-2 p-3 border-1 border-50 border-round">
+          <div class="flex justify-content-between mb-3">
+            <div>
+              <span class="block text-500 font-medium mb-3">Orders</span>
+              <div class="text-900 font-medium text-xl">{{vehiculesoui.length}}</div>
+            </div>
+            <div
+              class="
+                flex
+                align-items-center
+                justify-content-center
+                bg-blue-100
+                border-round
+              "
+              style="width: 2.5rem; height: 2.5rem"
+            >
+              <i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
+            </div>
+          </div>
+          <button
+          pButton
+          pRipple
+          icon="pi pi-pencil"
+          class="p-button-rounded p-button-success p-mr-2"
+(click)="opentable1(vehiculesoui)"
+        ></button>
+          </div>
+      </div>
+      <div class="col-12 lg:col-6 xl:col-3">
+        <div class="surface-card shadow-2 p-3 border-1 border-50 border-round">
+          <div class="flex justify-content-between mb-3">
+            <div>
+              <span class="block text-500 font-medium mb-3">Orders</span>
+              <div class="text-900 font-medium text-xl">{{vehiculesnone.length}}</div>
+            </div>
+            <div
+              class="
+                flex
+                align-items-center
+                justify-content-center
+                bg-blue-100
+                border-round
+              "
+              style="width: 2.5rem; height: 2.5rem"
+            >
+          </div>
+          </div>
+          <button
+          pButton
+          pRipple
+          icon="pi pi-pencil"
+          class="p-button-rounded p-button-success p-mr-2"
+(click)="opentable1(vehiculesnone)"
+        ></button>
+          </div>
+      </div>
+      <div class="col-12 lg:col-6 xl:col-3">
+        <div class="surface-card shadow-2 p-3 border-1 border-50 border-round">
+          <div class="flex justify-content-between mb-3">
+            <div>
+              <span class="block text-500 font-medium mb-3">Orders</span>
+              <div class="text-900 font-medium text-xl">{{vehiculesproch.length}}</div>
+            </div>
+            <div
+              class="
+                flex
+                align-items-center
+                justify-content-center
+                bg-blue-100
+                border-round
+              "
+              style="width: 2.5rem; height: 2.5rem"
+            >
+            <i class="pi pi-inbox text-cyan-500 text-xl"></i>
+            </div>
+          </div>
+          <button
+          pButton
+          pRipple
+          icon="pi pi-pencil"
+          class="p-button-rounded p-button-success p-mr-2"
+(click)="opentable1(vehiculesproch)"
+        ></button>
+          </div>
+      </div>
+      <div class="col-12 lg:col-6 xl:col-3">
+        <div class="surface-card shadow-2 p-3 border-1 border-50 border-round">
+          <div class="flex justify-content-between mb-3">
+            <div>
+              <span class="block text-500 font-medium mb-3">Orders</span>
+              <div class="text-900 font-medium text-xl">{{vehiculesKM.length}}</div>
+            </div>
+            <div
+              class="
+                flex
+                align-items-center
+                justify-content-center
+                bg-blue-100
+                border-round
+              "
+              style="width: 2.5rem; height: 2.5rem"
+            >
+
+            </div>
+          </div>
+          <button
+          pButton
+          pRipple
+          icon="pi pi-pencil"
+          class="p-button-rounded p-button-success p-mr-2"
+(click)="opentable2(vehiculesKM)"
+        ></button>
+          </div>
+      </div>
+
+      <div class="col-12 xl:col-6">
+        <div class="surface-card shadow-2 border-round p-4">
+          <div class="card">
+            <h5>Vertical</h5>
+            <p-chart
+              type="bar"
+              [data]="basicData"
+              [options]="basicOptions"
+            ></p-chart>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 xl:col-6">
+        <div class="surface-card shadow-2 border-round p-4">
+          <div class="card">
+            <h5>Line Styles</h5>
+            <p-chart
+              type="line"
+              [data]="lineStylesData"
+              [options]="basicOptions"
+            ></p-chart>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="border-round p-4" *ngFor="let Alerte of Alertes.Table1" >
+          <div class="text-xl text-900 font-medium mb-5">Alerte assurance</div>
+          <div class="mb-5 flex">
+            <div
+              class="flex flex-column align-items-center"
+              style="width: 2rem"
+            >
+              <span
+                class="
+                  bg-blue-500
+                  text-0
+                  flex
+                  align-items-center
+                  justify-content-center
+                  border-circle
+                "
+                style="min-width: 2.5rem; min-height: 2.5rem"
+                ><i class="pi pi-image"></i
+              ></span>
+              <div
+                class="h-full bg-blue-500"
+                style="width: 2px; min-height: 4rem"
+              ></div>
+            </div>
+            <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
+              <div class="mb-3">
+                <h3></h3>
+                <span class="text-900 font-medium inline-block mr-3"
+                  >{{ Alerte.immatricule }}
+                 </span
+                ><span class="text-900 text-sm"> {{ Alerte.jours }}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="border-round p-4" *ngFor="let Alerte of Alertes.Table5" >
+          <div class="text-xl text-900 font-medium mb-5">Alerte vidange</div>
+          <div class="mb-5 flex">
+            <div
+              class="flex flex-column align-items-center"
+              style="width: 2rem"
+            >
+              <span
+                class="
+                  bg-blue-500
+                  text-0
+                  flex
+                  align-items-center
+                  justify-content-center
+                  border-circle
+                "
+                style="min-width: 2.5rem; min-height: 2.5rem"
+                ><i class="pi pi-image"></i
+              ></span>
+              <div
+                class="h-full bg-blue-500"
+                style="width: 2px; min-height: 4rem"
+              ></div>
+            </div>
+            <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
+              <div class="mb-3">
+                <h3></h3>
+                <span class="text-900 font-medium inline-block mr-3"
+                  >{{ Alerte.immatricule }}
+                 </span
+                ><span class="text-900 text-sm"> {{ Alerte.jours }}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="border-round p-4" *ngFor="let Alerte of Alertes.Table2" >
+          <div class="text-xl text-900 font-medium mb-5">Alerte visite technique</div>
+          <div class="mb-5 flex">
+            <div
+              class="flex flex-column align-items-center"
+              style="width: 2rem"
+            >
+              <span
+                class="
+                  bg-blue-500
+                  text-0
+                  flex
+                  align-items-center
+                  justify-content-center
+                  border-circle
+                "
+                style="min-width: 2.5rem; min-height: 2.5rem"
+                ><i class="pi pi-image"></i
+              ></span>
+              <div
+                class="h-full bg-blue-500"
+                style="width: 2px; min-height: 4rem"
+              ></div>
+            </div>
+            <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
+              <div class="mb-3">
+                <h3></h3>
+                <span class="text-900 font-medium inline-block mr-3"
+                  >{{ Alerte.immatricule }}
+                 </span
+                ><span class="text-900 text-sm"> {{ Alerte.jours }}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="border-round p-4" *ngFor="let Alerte of Alertes.Table3" >
+          <div class="text-xl text-900 font-medium mb-5">Alerte carte grise</div>
+          <div class="mb-5 flex">
+            <div
+              class="flex flex-column align-items-center"
+              style="width: 2rem"
+            >
+              <span
+                class="
+                  bg-blue-500
+                  text-0
+                  flex
+                  align-items-center
+                  justify-content-center
+                  border-circle
+                "
+                style="min-width: 2.5rem; min-height: 2.5rem"
+                ><i class="pi pi-image"></i
+              ></span>
+              <div
+                class="h-full bg-blue-500"
+                style="width: 2px; min-height: 4rem"
+              ></div>
+            </div>
+            <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
+              <div class="mb-3">
+                <h3></h3>
+                <span class="text-900 font-medium inline-block mr-3"
+                  >{{ Alerte.immatricule }}
+                 </span
+                ><span class="text-900 text-sm"> {{ Alerte.jours }}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="border-round p-4" *ngFor="let Alerte of Alertes.Table4" >
+          <div class="text-xl text-900 font-medium mb-5">Alerte autorisation</div>
+          <div class="mb-5 flex">
+            <div
+              class="flex flex-column align-items-center"
+              style="width: 2rem"
+            >
+              <span
+                class="
+                  bg-blue-500
+                  text-0
+                  flex
+                  align-items-center
+                  justify-content-center
+                  border-circle
+                "
+                style="min-width: 2.5rem; min-height: 2.5rem"
+                ><i class="pi pi-image"></i
+              ></span>
+              <div
+                class="h-full bg-blue-500"
+                style="width: 2px; min-height: 4rem"
+              ></div>
+            </div>
+            <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
+              <div class="mb-3">
+                <h3></h3>
+                <span class="text-900 font-medium inline-block mr-3"
+                  >{{ Alerte.immatricule }}
+                 </span
+                ><span class="text-900 text-sm"> {{ Alerte.jours }}</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <p-dialog
+*ngIf="updatekm"
+  [(visible)]="updatekm"
+  header="papier Details"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+<app-tableupdate-km  [vehiculeKM]="vehiculeKM"></app-tableupdate-km>
+
+</p-dialog>
+<p-dialog
+*ngIf="tableV"
+  [(visible)]="tableV"
+  header="papier Details"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+<app-tableV  [vehicules]="vehicules"></app-tableV>
+
+</p-dialog>
+    </div>
+  </div>
+</div>

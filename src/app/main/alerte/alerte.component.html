@@ -1,0 +1,124 @@
+<div class="card">
+  <div class="flex justify-content-between flex-wrap card-container">
+    <div
+      class="flex flex-column align-items-center justify-content-center"
+      style="min-width: 200px; min-height: 100px"
+    >
+      <h3>Alerte assurance</h3>
+      <p-table
+        [value]="this.Alertes.Table1"
+        dataKey="id"
+        responsiveLayout="scroll"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>immatricule</th>
+            <th>jours</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-Alerte>
+          <tr>
+            <td>{{ Alerte.immatricule }}</td>
+            <td>{{ Alerte.jours }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div
+      class="flex flex-column align-items-center justify-content-center"
+      style="min-width: 200px; min-height: 100px"
+    >
+      <h3>Alerte vidange</h3>
+      <p-table
+        [value]="this.Alertes.Table5"
+        dataKey="id"
+        responsiveLayout="scroll"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>immatricule</th>
+            <th>jours</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-Alerte>
+          <tr>
+            <td>{{ Alerte.immatricule }}</td>
+            <td>{{ Alerte.jours }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div
+      class="flex flex-column align-items-center justify-content-center"
+      style="min-width: 200px; min-height: 100px"
+    >
+      <h3>Alerte visite technique</h3>
+      <p-table
+        [value]="this.Alertes.Table2"
+        dataKey="id"
+        responsiveLayout="scroll"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>immatricule</th>
+            <th>jours</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-Alerte>
+          <tr>
+            <td>{{ Alerte.immatricule }}</td>
+            <td>{{ Alerte.jours }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div
+      class="flex flex-column align-items-center justify-content-center"
+      style="min-width: 200px; min-height: 100px"
+    >
+      <h3>Alerte carte grise</h3>
+      <p-table
+        [value]="this.Alertes.Table3"
+        dataKey="id"
+        responsiveLayout="scroll"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>immatricule</th>
+            <th>jours</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-Alerte>
+          <tr>
+            <td>{{ Alerte.immatricule }}</td>
+            <td>{{ Alerte.jours }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div
+      class="flex flex-column align-items-center justify-content-center"
+      style="min-width: 200px; min-height: 100px"
+    >
+      <h3>Alerte autorisation</h3>
+      <p-table
+        [value]="this.Alertes.Table4"
+        dataKey="id"
+        responsiveLayout="scroll"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>immatricule</th>
+            <th>jours</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-Alerte>
+          <tr>
+            <td>{{ Alerte.immatricule }}</td>
+            <td>{{ Alerte.jours }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+<ng-template pTemplate="right">
+  <div class="p-d-flex">
+    <button
+      type="button"
+      pButton
+      pRipple
+      icon="pi pi-file-excel"
+      class="p-button-success p-mr-2"
+      pTooltip="XLS"
+      tooltipPosition="bottom"
+      (click)="PrintXLS()"
+    ></button>
+
+  </div>
+</ng-template>
+<div class="card p-2">
+  <p-toolbar styleClass="p-mb-4">
+      <ng-template pTemplate="left">
+          <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+     </ng-template>
+
+      <ng-template pTemplate="right">
+
+          <div class="p-d-flex">
+              <button type="button" pButton pRipple icon="pi pi-file-o"   class="p-mr-2" pTooltip="CSV" tooltipPosition="bottom"></button>
+              <button type="button" pButton pRipple icon="pi pi-file-excel"  class="p-button-success p-mr-2"  pTooltip="XLS" tooltipPosition="bottom"></button>
+              <button type="button" pButton pRipple icon="pi pi-file-pdf"  class="p-button-warning p-mr-2" pTooltip="PDF" tooltipPosition="bottom"></button>
+          </div>
+
+      </ng-template>
+  </p-toolbar>
+
+  <p-table  id="excel-table" #dt [value]="Contrats" [rows]="10" [paginator]="true" [globalFilterFields]="['idContrats','Datecontrat','Immatricule','numpi','Prix','alert_rotour']" responsiveLayout="scroll"
+     [rowHover]="true" dataKey="id"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+      <ng-template pTemplate="caption">
+          <div class="p-d-flex p-ai-center p-jc-between">
+              <h5 class="p-m-0">Manage Contrat</h5>
+              <span class="p-input-icon-left">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Search..." />
+              </span>
+          </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
+
+              <th pSortableColumn="idContrats">idContrats <p-sortIcon field="idContrats"></p-sortIcon></th>
+              <th pSortableColumn="Datecontrat">Datecontrat <p-sortIcon field="Datecontrat"></p-sortIcon></th>
+              <th pSortableColumn="realise_par_user">realise_par_user <p-sortIcon field="realise_par_user"></p-sortIcon></th>
+              <th pSortableColumn="Immatricule">Immatricule <p-sortIcon field="Immatricule"></p-sortIcon></th>
+              <th pSortableColumn="numpi">numpi <p-sortIcon field="numpi"></p-sortIcon></th>
+              <th pSortableColumn="Duree">Duree <p-sortIcon field="Duree"></p-sortIcon></th>
+              <th pSortableColumn="Lieu_de_livraison">Lieu_de_livraison <p-sortIcon field="Lieu_de_livraison"></p-sortIcon></th>
+              <th pSortableColumn="Total">Total <p-sortIcon field="Total"></p-sortIcon></th>
+              <th pSortableColumn="restmontant">restmontant <p-sortIcon field="restmontant"></p-sortIcon></th>
+              <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-Contrat>
+          <tr>
+
+              <td>{{Contrat.idContrats}}</td>
+              <td>{{Contrat.Datecontrat}}</td>
+              <td>{{Contrat.realise_par_user}}</td>
+              <td>{{Contrat.Immatricule}}</td>
+              <td>{{Contrat.numpi}}</td>
+              <td>{{Contrat.Duree}}</td>
+              <td>{{Contrat.Lieu_de_livraison}}</td>
+              <td>{{Contrat.Total}}</td>
+              <td>{{Contrat.restmontant}}</td>
+             <td>
+                  <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editContrat(Contrat)"></button>
+                  <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteContrat(Contrat.idContrats)"></button>
+                  <button
+                  pButton
+                  pRipple
+                  icon="pi pi-id-card"
+                  class="p-button-rounded p-button-Primary"
+
+                ></button>
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+          <div class="p-d-flex p-ai-center p-jc-between">
+              In total there are {{Contrats ? Contrats.length : 0 }} Contrats.
+          </div>
+      </ng-template>
+  </p-table>
+</div>
+
+<p-dialog [(visible)]="Dialog"  header="Product Details" [modal]="true" styleClass="p-fluid">
+  <app-createcontrat></app-createcontrat>
+</p-dialog>
+
+

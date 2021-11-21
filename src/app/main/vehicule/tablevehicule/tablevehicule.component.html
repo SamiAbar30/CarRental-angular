@@ -1,0 +1,152 @@
+<div class="card p-2">
+  <p-toolbar styleClass="p-mb-4">
+    <ng-template pTemplate="left">
+      <button
+        pButton
+        pRipple
+        label="New"
+        icon="pi pi-plus"
+        class="p-button-success p-mr-2"
+        (click)="openNew()"
+      ></button>
+    </ng-template>
+
+    <ng-template pTemplate="right">
+      <div class="p-d-flex">
+        <button
+          type="button"
+          pButton
+          pRipple
+          icon="pi pi-file-excel"
+          class="p-button-success p-mr-2"
+          pTooltip="XLS"
+          tooltipPosition="bottom"
+          (click)="PrintXLS()"
+        ></button>
+
+      </div>
+    </ng-template>
+  </p-toolbar>
+
+  <p-table
+  id="excel-table"
+    #dt
+    [value]="Vehicules"
+    [rows]="5"
+    [paginator]="true"
+    [globalFilterFields]="[
+      'Immatricule',
+      'Marque',
+      'Model',
+      'Kilometrage',
+      'Disponibilite',
+      'Prix',
+      'Carburant'
+    ]"
+    responsiveLayout="scroll"
+    [rowHover]="true"
+    dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [showCurrentPageReport]="true"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex p-ai-center p-jc-between">
+        <h5 class="p-m-0">Manage Products</h5>
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Search..."
+          />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="carimg">carimage</th>
+        <th pSortableColumn="Immatricule">
+          Immatricule <p-sortIcon field="Immatricule"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="Marque">
+          Marque <p-sortIcon field="Marque"></p-sortIcon>
+        </th>
+        <th pSortableColumn="Model">
+          Model <p-sortIcon field="Model"></p-sortIcon>
+        </th>
+        <th pSortableColumn="Kilometrage">
+          Kilometrage <p-sortIcon field="Kilometrage"></p-sortIcon>
+        </th>
+        <th pSortableColumn="Disponibilite">
+          Disponibilite <p-sortIcon field="Disponibilite"></p-sortIcon>
+        </th>
+        <th pSortableColumn="Prix">
+          Prix <p-sortIcon field="Prix"></p-sortIcon>
+        </th>
+        <th pSortableColumn="Carburant">
+          Carburant <p-sortIcon field="Carburant"></p-sortIcon>
+        </th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-Vehicule>
+      <tr>
+        <td>
+          <img [src]="Vehicule.carimg" style="width: 200px; height: 100px" />
+        </td>
+        <td>{{ Vehicule.Immatricule }}</td>
+
+        <td>{{ Vehicule.Marque }}</td>
+        <td>{{ Vehicule.Model }}</td>
+        <td>{{ Vehicule.Kilometrage }}</td>
+        <td>{{ Vehicule.Disponibilite }}</td>
+        <td>{{ Vehicule.Prix }}</td>
+        <td>{{ Vehicule.Carburant }}</td>
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success p-mr-2"
+            (click)="edit(Vehicule)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning"
+            (click)="delet(Vehicule.Immatricule)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-id-card"
+            class="p-button-rounded p-button-Primary"
+            (click)="funcpapier(Vehicule.Immatricule)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="p-d-flex p-ai-center p-jc-between">
+        In total there are {{ Vehicules ? Vehicules.length : 0 }} Vehicule.
+      </div>
+    </ng-template>
+  </p-table>
+</div>
+<p-dialog
+*ngIf="Dialog"
+  [(visible)]="Dialog"
+  header="papier Details"
+  [modal]="true"
+  styleClass="p-fluid"
+>
+<app-papier *ngIf="!exp" [Immatricule]="Numpi"></app-papier>
+<app-createvehicule *ngIf="exp" [item]="Vehicule" [Numpi]="Numpi"></app-createvehicule>
+
+</p-dialog>
+
+
