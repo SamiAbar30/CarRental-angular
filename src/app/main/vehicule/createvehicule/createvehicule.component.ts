@@ -57,19 +57,18 @@ export class CreatevehiculeComponent implements OnInit,OnChanges {
   AddVehicules() {
     this.fullitem();
     this.serice.addVehicules(this.item).subscribe((res) => alert(res));
-    this.events=[
-      { title: localStorage.getItem('login')+' AddVehicules', start: new Date().toString() }
-    ]
-    this.serice.addcalender(this.events).subscribe((res) => alert(res));
+    var events=
+      { title: localStorage.getItem('login')+' AddVehicules', start: new Date().toString() };
+    this.serice.addcalender(events).subscribe((res) => alert(res));
   }
 
   updateVehicules() {
     this.fullitem();
     this.serice.updateVehicules(this.item).subscribe((res) => alert(res));
-    this.events=[
+    var events=[
       { title: localStorage.getItem('login')+' updateVehicules', start: new Date().toString() }
     ]
-    this.serice.addcalender(this.events).subscribe((res) => alert(res));
+    this.serice.addcalender(events).subscribe((res) => alert(res));
   }
   async onimage1($event: any) {
     var file = $event.target.files[0];

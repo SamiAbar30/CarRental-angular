@@ -29,10 +29,10 @@ export class AgenceComponent implements OnInit {
 
   updateAgence() {
     this.serice.updateAgence(this.Agences[0]).subscribe((res) => alert(res));
-    this.events=[
-      { title: localStorage.getItem('login')+' updateAgence', start: new Date().toString() }
-    ]
-    this.serice.addcalender(this.events).subscribe((res) => alert(res));
+    var events=
+      { title: localStorage.getItem('login')+' updateAgence', start: new Date().toString() };
+
+    this.serice.addcalender(events).subscribe((res) => alert(res));
   }
   async onimage($event: any) {
     var file = $event.target.files[0];

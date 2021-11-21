@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
 @Component({
   selector: 'app-vehicule',
@@ -7,7 +8,7 @@ import {MenuItem} from 'primeng/api';
 })
 export class VehiculeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   items: MenuItem[];
 
@@ -22,6 +23,7 @@ export class VehiculeComponent implements OnInit {
   ];
 
   this.activeItem = this.items[0];
+  this.router.navigate(['/vehicule/tablevehicule'])
   }
 
 }

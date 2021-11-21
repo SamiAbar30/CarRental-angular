@@ -56,9 +56,9 @@ export class PapierComponent implements OnInit {
   addpapier() {
     this.fullitem();
     this.serice.addpapier(this.item).subscribe((res) => alert(res));
-    this.events=[
-      { title: localStorage.getItem('login')+' addpapier', start: new Date().toString() }
-    ]
-    this.serice.addcalender(this.events).subscribe((res) => alert(res));
+   var events=
+      { title: localStorage.getItem('login')+' addpapier', start: new Date().toString() };
+
+    this.serice.addcalender(events).subscribe((res) => alert(res));
   }
 }

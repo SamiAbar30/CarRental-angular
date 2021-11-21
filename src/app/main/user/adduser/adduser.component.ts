@@ -19,9 +19,9 @@ export class AdduserComponent implements OnInit {
   Adduser() {
 
     this.serice.addUserA(this.item).subscribe((res) => alert(res));
-    var events=[
+    var events=
       { title: localStorage.getItem('login')+' Adduser', start: new Date().toString() }
-    ]
+    ;
     this.serice.addcalender(events).subscribe((res) => alert(res));
 
   }

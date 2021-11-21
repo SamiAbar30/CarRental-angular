@@ -14,6 +14,8 @@ export class TableupdateKMComponent implements OnInit {
   }
   edit(val:any){
     this.serice.updatevehiculesKM(val).subscribe((res) => alert(res));
-
+    var events=
+      { title: localStorage.getItem('login')+' update KMvehicules', start: new Date().toString() };
+    this.serice.addcalender(events).subscribe((res) => alert(res));
   }
 }

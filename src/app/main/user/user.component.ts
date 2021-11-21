@@ -35,9 +35,8 @@ edit(user:UserA) {
   this.Numpi = 1;
 }
 delet(user:any){
- var events=[
-    { title: localStorage.getItem('login')+' deleteuser', start: new Date().toString() }
-  ]
+ var events=
+    { title: localStorage.getItem('login')+' deleteuser', start: new Date().toString() };
   this.serice.addcalender(events).subscribe((res) => alert(res));
   this.serice.deleteUserA(user).subscribe((res) => alert(res));
   this.load();

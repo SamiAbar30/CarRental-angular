@@ -49,10 +49,9 @@ export class TablevehiculeComponent implements OnInit {
   }
   delet(val: any) {
     this.serice.deleteVehicules(val).subscribe((res) => alert(res));
-    this.events=[
-      { title: localStorage.getItem('login')+' deleteVehicules', start: new Date().toString() }
-    ]
-    this.serice.addcalender(this.events).subscribe((res) => alert(res));
+    var events=
+      { title: localStorage.getItem('login')+' deleteVehicules', start: new Date().toString() };
+    this.serice.addcalender(events).subscribe((res) => alert(res));
     this.load();
   }
 

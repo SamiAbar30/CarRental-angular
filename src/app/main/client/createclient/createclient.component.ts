@@ -68,18 +68,14 @@ events:calender[]=[];
   AddClients() {
     this.fullitem();
     this.serice.addClients(this.item).subscribe((res) => alert(res));
-    this.events=[
-      { title: localStorage.getItem('login')+' Addcliant', start: new Date().toString() }
-    ]
+    var events={ title: localStorage.getItem('login')+' Addcliant', start: new Date().toString() };
     this.serice.addcalender(this.events).subscribe((res) => alert(res));
   }
 
   updateClients() {
     this.fullitem();
     this.serice.updateClients(this.item).subscribe((res) => alert(res));
-    this.events=[
-      { title: localStorage.getItem('login')+' updatecliant', start: new Date().toString() }
-    ]
+    var events={ title: localStorage.getItem('login')+' updatecliant', start: new Date().toString() };
     this.serice.addcalender(this.events).subscribe((res) => alert(res));
   }
   async onimage1($event: any) {

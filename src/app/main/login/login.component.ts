@@ -20,11 +20,11 @@ Login(){
   this.serice.Login(user).subscribe((res) =>{
   if(res){
     localStorage.setItem('CIN', this.CIN);
-    localStorage.setItem('login',JSON.stringify(false));
-    this.events=[
-      { title: localStorage.getItem('login')+' login', start: new Date().toString() }
-    ]
-    this.serice.addcalender(this.events).subscribe((res) => alert(res));
+    localStorage.setItem('login',JSON.stringify(true));
+    var events=
+      { title: localStorage.getItem('login')+' login', start: new Date().toString() };
+
+    this.serice.addcalender(events).subscribe((res) => alert(res));
     location.reload();
   }
   });

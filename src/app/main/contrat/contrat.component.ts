@@ -44,10 +44,9 @@ export class ContratComponent implements OnInit {
   }
   deleteContrat(val: any) {
     this.serice.deleteContrat(val).subscribe((res) => alert(res));
-    this.events=[
-      { title: localStorage.getItem('login')+' deletecontrat', start: new Date().toString() }
-    ]
-    this.serice.addcalender(this.events).subscribe((res) => alert(res));
+    var events=
+      { title: localStorage.getItem('login')+' deletecontrat', start: new Date().toString() };
+    this.serice.addcalender(events).subscribe((res) => alert(res));
     this.load();
   }
 

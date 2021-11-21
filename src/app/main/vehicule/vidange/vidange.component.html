@@ -1,75 +1,93 @@
 <div class="grid">
   <div class="flex flex-wrap card-container blue-container">
     <div class="col-12 md:col-12 lg:col-3">
-      <button pButton pRipple type="button" label="Success" class="p-button-outlined p-button-success" (click)="addVidange()"></button>
-</div>
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Success"
+        class="p-button-outlined p-button-success"
+        (click)="addVidange()"
+      ></button>
+    </div>
     <div class="col-12">
-        <div class="grid formgrid p-fluid">
-          <div class="field mb-4 col-12">
-            <label for="Immatricule" class="font-medium">Immatricule</label
-            ><p-dropdown [options]="Immatricules" [(ngModel)]="Immatriculeselect"  optionLabel="Immatricule"></p-dropdown>
-          </div>
-          <div class="field mb-4 col-12 md:col-6">
-            <label for="dete">date</label>
-            <p-calendar
-              [(ngModel)]="Date"
-              [showIcon]="true"
-              inputId="date"
-            ></p-calendar>
-          </div>
-          <div class="field mb-4 col-12 md:col-6">
-            <label for="TypeV" class="font-medium">Type de vidange:</label
-              ><input [(ngModel)]="this.Vidange.Type_de_vidange"
-                name="TypeV"
-                type="text"
-                pinputtext=""
-                class="p-inputtext p-component p-element"
-              />
-          </div>
-          <div class="field mb-4 col-12 md:col-6">
-            <label for="KmActuel" class="font-medium">Km Actuel</label
-              ><input [(ngModel)]="this.Vidange.Km_Actuel"
-                name="KmActuel"
-                type="text"
-                pinputtext=""
-                class="p-inputtext p-component p-element"
-              />
-          </div>
-          <div class="field mb-4 col-12 md:col-6">
-            <label for="KmProchainV" class="font-medium">Km Prochain vidange :</label
-              ><input [(ngModel)]="this.Vidange.Km_Prochain_vidange"
-                name="KmProchainV"
-                type="text"
-                pinputtext=""
-                class="p-inputtext p-component p-element"
-              />
-          </div>
-          <div class="field mb-4 col-12 md:col-6">
-            <label for="Alerte" class="font-medium">Alerte si reste :</label
-              ><input [(ngModel)]="this.Vidange.Alerte_si_reste"
-                name="Alerte"
-                type="text"
-                pinputtext=""
-                class="p-inputtext p-component p-element"
-              />
-          </div>
-          <div class="field mb-4 col-12 md:col-6">
-            <label for="Cout" class="font-medium">Cout</label
-              ><input [(ngModel)]="this.Vidange.Cout"
-                name="Cout"
-                type="text"
-                pinputtext=""
-                class="p-inputtext p-component p-element"
-              />
-          </div>
-
+      <div class="grid formgrid p-fluid">
+        <div class="field mb-4 col-12">
+          <label for="Immatricule" class="font-medium">Immatricule</label
+          ><p-dropdown
+            [options]="Immatricules"
+            [(ngModel)]="Immatriculeselect"
+            optionLabel="Immatricule"
+          ></p-dropdown>
         </div>
+        <div class="field mb-4 col-12 md:col-6">
+          <label for="dete">date</label>
+          <p-calendar
+            [(ngModel)]="Date"
+            [showIcon]="true"
+            inputId="date"
+          ></p-calendar>
+        </div>
+        <div class="field mb-4 col-12 md:col-6">
+          <label for="TypeV" class="font-medium">Type de vidange:</label
+          ><input
+            [(ngModel)]="this.Vidange.Type_de_vidange"
+            name="TypeV"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+          />
+        </div>
+        <div class="field mb-4 col-12 md:col-6">
+          <label for="KmActuel" class="font-medium">Km Actuel</label
+          ><input
+            [(ngModel)]="this.Vidange.Km_Actuel"
+            name="KmActuel"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+          />
+        </div>
+        <div class="field mb-4 col-12 md:col-6">
+          <label for="KmProchainV" class="font-medium"
+            >Km Prochain vidange :</label
+          ><input
+            [(ngModel)]="this.Vidange.Km_Prochain_vidange"
+            name="KmProchainV"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+          />
+        </div>
+        <div class="field mb-4 col-12 md:col-6">
+          <label for="Alerte" class="font-medium">Alerte si reste :</label
+          ><input
+            [(ngModel)]="this.Vidange.Alerte_si_reste"
+            name="Alerte"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+          />
+        </div>
+        <div class="field mb-4 col-12 md:col-6">
+          <label for="Cout" class="font-medium">Cout</label
+          ><input
+            [(ngModel)]="this.Vidange.Cout"
+            name="Cout"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+            title=""
+            placeholder=""
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>
 <div>
   <p-table [value]="Vidanges" responsiveLayout="scroll">
-    <ng-template  pTemplate="header">
+    <ng-template pTemplate="header">
       <tr>
         <th>Immatricule</th>
         <th>Date</th>
@@ -91,11 +109,15 @@
         <td>{{ Vidange.Alerte_si_reste }}</td>
         <td>{{ Vidange.Cout }}</td>
         <td>
-          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="updateVidange()"></button>
-          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteVidange(Vidange.Immatricule)"></button>
-      </td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning"
+            (click)="deleteVidange(Vidange.Immatricule)"
+          ></button>
+        </td>
       </tr>
     </ng-template>
   </p-table>
 </div>
-
