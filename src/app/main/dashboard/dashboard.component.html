@@ -24,7 +24,7 @@
           <button
           pButton
           pRipple
-          icon="pi pi-pencil"
+          icon="pi pi-plus-circle"
           class="p-button-rounded p-button-success p-mr-2"
 (click)="opentable1(vehiculesoui)"
         ></button>
@@ -52,7 +52,7 @@
           <button
           pButton
           pRipple
-          icon="pi pi-pencil"
+          icon="pi pi-plus-circle"
           class="p-button-rounded p-button-success p-mr-2"
 (click)="opentable1(vehiculesnone)"
         ></button>
@@ -81,7 +81,7 @@
           <button
           pButton
           pRipple
-          icon="pi pi-pencil"
+          icon="pi pi-plus-circle"
           class="p-button-rounded p-button-success p-mr-2"
 (click)="opentable1(vehiculesproch)"
         ></button>
@@ -110,7 +110,7 @@
           <button
           pButton
           pRipple
-          icon="pi pi-pencil"
+          icon="pi pi-plus-circle"
           class="p-button-rounded p-button-success p-mr-2"
 (click)="opentable2(vehiculesKM)"
         ></button>
@@ -142,7 +142,7 @@
         </div>
       </div>
       <div class="col-12">
-        <div class="border-round p-4" *ngFor="let Alerte of Alertes.Table1" >
+        <div class="border-round p-4"  >
           <div class="text-xl text-900 font-medium mb-5">Alerte assurance</div>
           <div class="mb-5 flex">
             <div
@@ -151,7 +151,7 @@
             >
               <span
                 class="
-                  bg-blue-500
+                  bg-pink-500
                   text-0
                   flex
                   align-items-center
@@ -159,15 +159,15 @@
                   border-circle
                 "
                 style="min-width: 2.5rem; min-height: 2.5rem"
-                ><i class="pi pi-image"></i
+                ><i class="pi pi-exclamation-triangle"></i
               ></span>
               <div
-                class="h-full bg-blue-500"
+                class="h-full bg-pink-600"
                 style="width: 2px; min-height: 4rem"
               ></div>
             </div>
             <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
-              <div class="mb-3">
+              <div class="mb-3" *ngFor="let Alerte of Alertes.Table1">
                 <h3></h3>
                 <span class="text-900 font-medium inline-block mr-3"
                   >{{ Alerte.immatricule }}
@@ -178,7 +178,7 @@
           </div>
 
         </div>
-        <div class="border-round p-4" *ngFor="let Alerte of Alertes.Table5" >
+        <div class="border-round p-4" >
           <div class="text-xl text-900 font-medium mb-5">Alerte vidange</div>
           <div class="mb-5 flex">
             <div
@@ -187,7 +187,7 @@
             >
               <span
                 class="
-                  bg-blue-500
+                  bg-pink-500
                   text-0
                   flex
                   align-items-center
@@ -195,15 +195,15 @@
                   border-circle
                 "
                 style="min-width: 2.5rem; min-height: 2.5rem"
-                ><i class="pi pi-image"></i
+                ><i class="pi pi-exclamation-triangle"></i
               ></span>
               <div
-                class="h-full bg-blue-500"
+                class="h-full bg-pink-500"
                 style="width: 2px; min-height: 4rem"
               ></div>
             </div>
             <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
-              <div class="mb-3">
+              <div class="mb-3" *ngFor="let Alerte of Alertes.Table5" >
                 <h3></h3>
                 <span class="text-900 font-medium inline-block mr-3"
                   >{{ Alerte.immatricule }}
@@ -214,7 +214,7 @@
           </div>
 
         </div>
-        <div class="border-round p-4" *ngFor="let Alerte of Alertes.Table2" >
+        <div class="border-round p-4" >
           <div class="text-xl text-900 font-medium mb-5">Alerte visite technique</div>
           <div class="mb-5 flex">
             <div
@@ -223,7 +223,7 @@
             >
               <span
                 class="
-                  bg-blue-500
+                  bg-pink-500
                   text-0
                   flex
                   align-items-center
@@ -231,15 +231,15 @@
                   border-circle
                 "
                 style="min-width: 2.5rem; min-height: 2.5rem"
-                ><i class="pi pi-image"></i
+                ><i class="pi pi-exclamation-triangle"></i
               ></span>
               <div
-                class="h-full bg-blue-500"
+                class="h-full bg-pink-500"
                 style="width: 2px; min-height: 4rem"
               ></div>
             </div>
             <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
-              <div class="mb-3">
+              <div class="mb-3"  *ngFor="let Alerte of Alertes.Table2">
                 <h3></h3>
                 <span class="text-900 font-medium inline-block mr-3"
                   >{{ Alerte.immatricule }}
@@ -250,7 +250,7 @@
           </div>
 
         </div>
-        <div class="border-round p-4" *ngFor="let Alerte of Alertes.Table3" >
+        <div class="border-round p-4">
           <div class="text-xl text-900 font-medium mb-5">Alerte carte grise</div>
           <div class="mb-5 flex">
             <div
@@ -259,7 +259,7 @@
             >
               <span
                 class="
-                  bg-blue-500
+                  bg-pink-500
                   text-0
                   flex
                   align-items-center
@@ -267,15 +267,15 @@
                   border-circle
                 "
                 style="min-width: 2.5rem; min-height: 2.5rem"
-                ><i class="pi pi-image"></i
+                ><i class="pi pi-exclamation-triangle"></i
               ></span>
               <div
-                class="h-full bg-blue-500"
+                class="h-full bg-pink-500"
                 style="width: 2px; min-height: 4rem"
               ></div>
             </div>
             <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
-              <div class="mb-3">
+              <div class="mb-3"  *ngFor="let Alerte of Alertes.Table3" >
                 <h3></h3>
                 <span class="text-900 font-medium inline-block mr-3"
                   >{{ Alerte.immatricule }}
@@ -286,7 +286,7 @@
           </div>
 
         </div>
-        <div class="border-round p-4" *ngFor="let Alerte of Alertes.Table4" >
+        <div class="border-round p-4"  >
           <div class="text-xl text-900 font-medium mb-5">Alerte autorisation</div>
           <div class="mb-5 flex">
             <div
@@ -295,7 +295,7 @@
             >
               <span
                 class="
-                  bg-blue-500
+                  bg-pink-500
                   text-0
                   flex
                   align-items-center
@@ -303,15 +303,15 @@
                   border-circle
                 "
                 style="min-width: 2.5rem; min-height: 2.5rem"
-                ><i class="pi pi-image"></i
+                ><i class="pi pi-exclamation-triangle"></i
               ></span>
               <div
-                class="h-full bg-blue-500"
+                class="h-full bg-pink-500"
                 style="width: 2px; min-height: 4rem"
               ></div>
             </div>
             <div class="ml-5 surface-card shadow-2 border-round p-3 flex-auto">
-              <div class="mb-3">
+              <div class="mb-3" *ngFor="let Alerte of Alertes.Table4">
                 <h3></h3>
                 <span class="text-900 font-medium inline-block mr-3"
                   >{{ Alerte.immatricule }}

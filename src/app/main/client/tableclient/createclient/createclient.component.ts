@@ -10,7 +10,7 @@ import { Observable, Subscriber } from 'rxjs';
   templateUrl: './createclient.component.html',
   styleUrls: ['./createclient.component.scss'],
 })
-export class CreateclientComponent implements OnChanges, OnChanges {
+export class CreateclientComponent implements OnInit{
   image1: Observable<any>;
   image2: Observable<any>;
   image3: Observable<any>;
@@ -29,54 +29,57 @@ export class CreateclientComponent implements OnChanges, OnChanges {
   Cliants: Clients={};
   @Input() item: Clients={};
   @Input() Numpi: any;
-
   sexe: any[] = [];
   type_PI: any[] = [];
-  selectedSexe: any;
-  selectedtype_PI: any;
+  selectedSexe: any={name: ''};
+  selectedtype_PI: any={name: ''};
 
-  datenaissance: Date;
-  validite: Date;
-  delevrele: Date;
-  Validite_pi: Date;
+  datenaissance: Date=new Date();
+  validite: Date=new Date();
+  delevrele: Date=new Date();
+  Validite_pi: Date=new Date();
 events:calender[]=[];
   constructor(private serice: SharedService,public datepipe: DatePipe) {}
 
   ngOnInit(): void {
     this.sexe = [{ name: 'Mr' }, { name: 'Ms' }];
     this.type_PI = [{ name: 'carte national' }, { name: 'passeport' }];
+    this.ngOnChanges();
   }
   changetype(vare:any){
     this.item.Clienttype=vare;
   }
-  ngOnChanges(): void {
+  ngOnChanges(){
     this.itemimage1 = this.item.identiteimg_recto ?? 'assets/images/68311.jpg';
     this.itemimage2 = this.item.identiteimg_verso ?? 'assets/images/68311.jpg';
     this.itemimage3 = this.item.permi_recto ??'assets/images/68311.jpg';
     this.itemimage4 = this.item.permi_verso ??'assets/images/68311.jpg';
     this.itemimage5 = this.item.passeport_recto ??'assets/images/68311.jpg';
     this.itemimage6 = this.item.passeport_verso ??'assets/images/68311.jpg';
+    this.selectedSexe.name= this.item.Civilite;
+    this.selectedtype_PI.name=this.item.Type_pi;
   }
   fullitem() {
     this.item.Date_de_naissance =this.datepipe.transform(this.datenaissance,"yyyy-MM-dd")?.toString();
     this.item.Validite =this.datepipe.transform(this.validite,"yyyy-MM-dd")?.toString();
     this.item.Delivre_le =this.datepipe.transform(this.delevrele,"yyyy-MM-dd")?.toString();
     this.item.Validite_pi =this.datepipe.transform(this.Validite_pi,"yyyy-MM-dd")?.toString();
-    this.item.Civilite = this.selectedSexe;
-    this.item.Type_pi = this.selectedtype_PI;
+    this.item.Civilite = this.selectedSexe.name;
+    this.item.Type_pi = this.selectedtype_PI.name;
   }
   AddClients() {
-    this.fullitem();
-    this.serice.addClients(this.item).subscribe((res) => alert(res));
+   this.fullitem();
+
+   this.serice.addClients(this.item).subscribe((res) => alert(res));
     var events={ title: localStorage.getItem('login')+' Addcliant', start: new Date().toString() };
-    this.serice.addcalender(this.events).subscribe((res) => alert(res));
+    this.serice.addcalender(events).subscribe((res) => alert(res));
   }
 
   updateClients() {
-    this.fullitem();
+  this.fullitem();
     this.serice.updateClients(this.item).subscribe((res) => alert(res));
     var events={ title: localStorage.getItem('login')+' updatecliant', start: new Date().toString() };
-    this.serice.addcalender(this.events).subscribe((res) => alert(res));
+    this.serice.addcalender(events).subscribe((res) => alert(res));
   }
   async onimage1($event: any) {
     var file = $event.target.files[0];

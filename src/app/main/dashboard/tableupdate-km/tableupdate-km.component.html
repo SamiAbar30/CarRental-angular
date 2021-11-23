@@ -6,14 +6,19 @@ responsiveLayout="scroll"
 <ng-template pTemplate="header">
   <tr>
     <th>immatricule</th>
-    <th>Marque</th>
+    <th>km</th>
     <th></th>
   </tr>
 </ng-template>
 <ng-template pTemplate="body" let-vehicules>
   <tr>
     <td>{{ vehicules.Immatricule }}</td>
-    <td>{{ vehicules.Marque }}</td>
+    <td><input
+      name="ICE"
+      type="text"
+      pInputText
+      [(ngModel)]="Kilometrage"
+    /></td>
     <td> <button
       pButton
       pRipple

@@ -11,11 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VidangeComponent implements OnInit {
   Date: Date = new Date();
-  Vidanges: Vidange[] = [];
+  Vidanges: Vidange[] =[];
   Vidange: Vidange = {};
-  Immatricules: any[];
-  Immatriculeselect: any;
-  events: calender[];
+  Immatricules: any[]=[];
+  Immatriculeselect: any={Immatricule:''};
+  events: calender[]=[];
   constructor(private serice: SharedService,public datepipe: DatePipe) {}
 
   ngOnInit(): void {
@@ -34,24 +34,24 @@ export class VidangeComponent implements OnInit {
   }
   addVidange() {
     this.fulldate();
-    this.serice.addVidange(this.Vidange).subscribe((res) => alert(res));
-        var events=
-      { title: localStorage.getItem('login')+' addVidange', start: new Date().toString() };
-    this.serice.addcalender(events).subscribe((res) => alert(res));
-    this.load();
+     this.serice.addVidange(this.Vidange).subscribe((res) => alert(res));
+         var events=
+       { title: localStorage.getItem('login')+' addVidange', start: new Date().toString() };
+     this.serice.addcalender(events).subscribe((res) => alert(res));
+     this.load();
   }
 
- 
+
   deleteVidange(val: any) {
     this.serice.deleteVidange(val).subscribe((res) => alert(res));
     var events=
       { title: localStorage.getItem('login')+' deleteVidange', start: new Date().toString() };
     this.serice.addcalender(events).subscribe((res) => alert(res));
     this.load();
-    this.load();
+
   }
   fulldate() {
     this.Vidange.Date =this.datepipe.transform(this.Date,"yyyy-MM-dd")?.toString();
-
+    this.Vidange.Immatricule = this.Immatriculeselect.Immatricule==''?this.Immatricules[0].Immatricule:this.Immatriculeselect.Immatricule;
   }
 }

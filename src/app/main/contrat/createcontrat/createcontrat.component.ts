@@ -25,9 +25,12 @@ export class CreatecontratComponent implements OnInit {
   Duree_retour: Date=new Date();
   montantapayer:any;
   events:calender[]=[];
+  @Input() Numpi: any;
   constructor(private serice: SharedService,public datepipe: DatePipe) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.Contrats.realise_par_user=localStorage.getItem('CIN')?.toString();
+  }
   OnChangeduree(event: any)
   {
     this.Contrats.Duree_depart=this.datepipe.transform(new Date(), 'yyyy-MM-dd')?.toString();
@@ -77,17 +80,20 @@ export class CreatecontratComponent implements OnInit {
   }
 
   Success() {
+    this.Contrats.realise_par_user=localStorage.getItem('CIN')?.toString();
     this.Contrats.Datecontrat =this.datepipe.transform( this.Datecontrat,"yyyy-MM-dd")?.toString();
-    this.Contrats.realise_par_user = this.realise_par_user;
     this.Contrats.Marque = this.vehicule.Marque;
     this.Contrats.Immatricule = this.vehicule.Immatricule;
     this.Contrats.Km_actuel = this.vehicule.Kilometrage;
     this.Contrats.numpi = this.cliant.Numpi;
     this.Contrats.numpi2 = this.cliant2.Numpi;
-    this.serice.addContrat(this.Contrats).subscribe((res) => alert(res));
-    this.events=[
-      { title: localStorage.getItem('login')+' Addcliant', start: new Date().toString() }
-    ]
-    this.serice.addcalender(this.events).subscribe((res) => alert(res));
+    this.Contrats.Duree_depart =  this.datepipe.transform( this.Duree_depart,"yyyy-MM-dd")?.toString();
+    this.Contrats.Duree_retour = this.datepipe.transform( this.Duree_retour,"yyyy-MM-dd")?.toString();
+   
+      this.serice.addContrat(this.Contrats).subscribe((res) => alert(res));
+      var events=
+        { title: localStorage.getItem('login')+' updatecontrat', start: new Date().toString() };
+      this.serice.addcalender(events).subscribe((res) => alert(res));
   }
+ 
 }

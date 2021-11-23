@@ -8,12 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TableupdateKMComponent implements OnInit {
   @Input() vehiculeKM: any[]=[];
+   Kilometrage:any;
   constructor(private serice: SharedService) { }
 
   ngOnInit(): void {
   }
   edit(val:any){
-    this.serice.updatevehiculesKM(val).subscribe((res) => alert(res));
+
+    var dashV=
+    { idContrats: val.idContrats , Kilometrage: this.Kilometrage, Immatricule:  val.Immatricule};
+    console.log(dashV);
+     this.serice.updatevehiculesKM(dashV).subscribe((res) => alert(res));
     var events=
       { title: localStorage.getItem('login')+' update KMvehicules', start: new Date().toString() };
     this.serice.addcalender(events).subscribe((res) => alert(res));

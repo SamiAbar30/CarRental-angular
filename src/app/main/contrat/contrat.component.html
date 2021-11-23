@@ -70,12 +70,11 @@
               <td>{{Contrat.Total}}</td>
               <td>{{Contrat.restmontant}}</td>
              <td>
-                  <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editContrat(Contrat)"></button>
-                  <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteContrat(Contrat.idContrats)"></button>
+                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteContrat(Contrat.idContrats)"></button>
                   <button
                   pButton
                   pRipple
-                  icon="pi pi-id-card"
+                  icon="pi pi-file-pdf"
                   class="p-button-rounded p-button-Primary"
 
                 ></button>
@@ -91,7 +90,7 @@
 </div>
 
 <p-dialog [(visible)]="Dialog"  header="Product Details" [modal]="true" styleClass="p-fluid">
-  <app-createcontrat></app-createcontrat>
+  <app-createcontrat ></app-createcontrat>
 </p-dialog>
 
 

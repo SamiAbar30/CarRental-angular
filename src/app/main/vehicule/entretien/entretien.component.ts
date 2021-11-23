@@ -10,18 +10,18 @@ import { Entretien } from 'src/app/Entretien';
   styleUrls: ['./entretien.component.scss'],
 })
 export class EntretienComponent implements OnInit {
-  Date_Entretien: Date=new Date();
-  Entretiens: Entretien[]=[];
-  Entretien: Entretien={};
-  Immatricules:any[];
-  Immatriculeselect:any;
-  events:calender[]=[];
-  constructor(private serice: SharedService,public datepipe: DatePipe) {}
+  Date_Entretien: Date = new Date();
+  Entretiens: Entretien[] = [];
+  Entretien: Entretien = {};
+  Immatricules: any[] = [];
+  Immatriculeselect: any = { Immatricule: '' };
+  events: calender[] = [];
+  constructor(private serice: SharedService, public datepipe: DatePipe) {}
   ngOnInit(): void {
     this.VehiclesImmatricule();
     this.load();
   }
-  VehiclesImmatricule(){
+  VehiclesImmatricule() {
     this.serice.VehiclesImmatricule().subscribe((dep) => {
       this.Immatricules = dep;
     });
@@ -33,22 +33,32 @@ export class EntretienComponent implements OnInit {
   }
   AddEntretien() {
     this.fulldate();
+   
+
     this.serice.addEntretien(this.Entretien).subscribe((res) => alert(res));
-    var events=
-      { title: localStorage.getItem('login')+' addEntretien', start: new Date().toString() };
+    var events = {
+      title: localStorage.getItem('login') + ' addEntretien',
+      start: new Date().toString(),
+    };
 
     this.serice.addcalender(events).subscribe((res) => alert(res));
   }
 
-
   delet(val: any) {
     this.serice.deleteEntretien(val).subscribe((res) => alert(res));
-    var events=
-      { title: localStorage.getItem('login')+' deleteEntretien', start: new Date().toString() };
+    var events = {
+      title: localStorage.getItem('login') + ' deleteEntretien',
+      start: new Date().toString(),
+    };
 
     this.serice.addcalender(events).subscribe((res) => alert(res));
     this.load();
   }
-  fulldate(){this.Entretien.Date_Entretien =this.datepipe.transform( this.Date_Entretien,"yyyy-MM-dd")?.toString();
-    }
+  fulldate() {
+    this.Entretien.Date_Entretien = this.datepipe
+      .transform(this.Date_Entretien, 'yyyy-MM-dd')
+      ?.toString();
+
+    this.Entretien.Immatricule = this.Immatriculeselect.Immatricule==''?this.Immatricules[0].Immatricule:this.Immatriculeselect.Immatricule;
+  }
 }

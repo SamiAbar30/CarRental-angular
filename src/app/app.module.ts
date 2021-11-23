@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { ClientComponent } from './main/client/client.component';
-import { CreateclientComponent } from './main/client/createclient/createclient.component';
 import { TableclientComponent } from './main/client/tableclient/tableclient.component';
 import { VehiculeComponent } from './main/vehicule/vehicule.component';
 import { TablevehiculeComponent } from './main/vehicule/tablevehicule/tablevehicule.component';
@@ -36,7 +35,13 @@ import {FullCalendarModule} from 'primeng/fullcalendar';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { TableupdateKMComponent } from './main/dashboard/tableupdate-km/tableupdate-km.component'; // a plugin!
-import { TableVComponent } from './main/dashboard/tablevehicule/tableV.component'; // a plugin!
+import { TableVComponent } from './main/dashboard/tablevehicule/tableV.component';
+
+import { RenderComponent } from './main/contrat/render/render.component';
+import { ProlongationComponent } from './main/contrat/prolongation/prolongation.component';
+import { ComptecliantComponent } from './main/client/tableclient/comptecliant/comptecliant.component';
+import { ReglomentComponent } from './main/client/tableclient/regloment/regloment.component';
+import { CreateclientComponent } from './main/client/tableclient/createclient/createclient.component';
 
 
 @NgModule({
@@ -66,7 +71,11 @@ import { TableVComponent } from './main/dashboard/tablevehicule/tableV.component
     CalenderComponent,
     HeaderComponent,
     TableupdateKMComponent,
-    TableVComponent
+    TableVComponent,
+    ComptecliantComponent,
+    RenderComponent,
+    ProlongationComponent,
+    ReglomentComponent
   ],
   imports: [
     BrowserModule,

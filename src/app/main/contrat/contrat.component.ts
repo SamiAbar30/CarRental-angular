@@ -19,6 +19,7 @@ export class ContratComponent implements OnInit {
   events:calender[]=[];
   title = ' Contrat';
   fileName= ' ContratExcelSheet.xlsx';
+  
   constructor(private serice: SharedService) {}
 
   ngOnInit() {
@@ -33,15 +34,9 @@ export class ContratComponent implements OnInit {
 
   openNew() {
     this.Dialog = true;
-    this.Contrat = {};
-    this.Numpi = 0;
   }
 
-  editContrat(val: any) {
-    this.Dialog = true;
-    this.Contrat = val;
-    this.Numpi = 1;
-  }
+
   deleteContrat(val: any) {
     this.serice.deleteContrat(val).subscribe((res) => alert(res));
     var events=

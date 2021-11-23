@@ -11,12 +11,13 @@
           ></p-calendar>
         </div>
         <div class="col-12 md:col-12 lg:col-3">
-          <label for="realisépar" class="font-medium">realisé par</label
+          <label for="realisépar" class="font-medium" >realisé par</label
           ><input
             name="realisépar"
             type="text"
             pinputtext=""
             class="p-inputtext p-component p-element"
+            [value]="this.Contrats.realise_par_user"
           />
         </div>
         <div class="col-12 md:col-12 lg:col-3">
@@ -27,7 +28,9 @@
             label="Success"
             class="p-button-outlined p-button-success"
             (click)="Success()"
+          
           ></button>
+         
         </div>
       </div>
     </div>

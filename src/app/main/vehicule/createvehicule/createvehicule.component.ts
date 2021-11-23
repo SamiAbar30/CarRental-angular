@@ -25,15 +25,15 @@ export class CreatevehiculeComponent implements OnInit,OnChanges {
   selectedValue?: string;
   value: string;
   checked: boolean = true;
-  Vehicule: Vehicules;
-  @Input() item: Vehicules;
+  Vehicule: Vehicules={};
+  @Input() item: Vehicules={};
   Disponibilite: any[] = [];
   Carburant: any[] = [];
-  @Input() Numpi: any;
-  selectDisponibilite: any;
-  selectCarburant: any;
+  @Input() Numpi: any={};
+  selectDisponibilite: any={name: ''};
+  selectCarburant: any={name: ''};
   events:calender[]=[];
-  Date_MEC: Date;
+  Date_MEC: Date=new Date();
   constructor(private serice: SharedService,public datepipe: DatePipe) {}
 
   ngOnInit(): void {
@@ -48,11 +48,13 @@ export class CreatevehiculeComponent implements OnInit,OnChanges {
     this.itemimage4 = this.item.image3_recto?? 'assets/images/68311.jpg';
     this.itemimage5 = this.item.image4_verso?? 'assets/images/68311.jpg';
     this.Date_MEC = this.item.Date_MEC? new Date(this.item.Date_MEC.toString()): new Date();
+    this.selectDisponibilite.name=this.item.Disponibilite;
+    this.selectCarburant.name= this.item.Carburant;
   }
   fullitem() {
     this.item.Date_MEC =this.datepipe.transform(this.Date_MEC,"yyyy-MM-dd")?.toString();
-    this.item.Disponibilite = this.selectDisponibilite;
-    this.item.Carburant = this.selectCarburant;
+    this.item.Disponibilite = this.selectDisponibilite.name;
+    this.item.Carburant = this.selectCarburant.name;
   }
   AddVehicules() {
     this.fullitem();

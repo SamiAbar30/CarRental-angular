@@ -91,9 +91,7 @@ deleteVehicules(val:any){
 getContrats():Observable<any[]>{
   return this.http.get<any>( this.APIUrl+'/Contrats');
 }
-updateContrata(val:any){
- return this.http.put(this.APIUrl+'/Contrats',val);
-}
+
 addContrat(val:any){
  return this.http.post(this.APIUrl+'/Contrats',val);
 }
@@ -135,7 +133,7 @@ getpapier(val:any):Observable<any[]>{
   return this.http.get<any>( this.APIUrl+'/papier/'+val);
 }
 addpapier(val:any){
- return this.http.post(this.APIUrl+'/papier',val);
+ return this.http.put(this.APIUrl+'/papier',val);
 }
 //Login
 Login(val:any){
