@@ -12,9 +12,12 @@ import * as XLSX from 'xlsx';
 })
 export class TableclientComponent implements OnInit {
   productDialog: boolean;
+  productDialogcompt: boolean;
   Numpi: any;
   Cliants: Clients[];
+  Compte: any[];
   Cliant: Clients;
+  exp: boolean = false;
 events:calender[]=[];
 title = 'Tableclient';
 fileName= 'TableclientExcelSheet.xlsx';
@@ -32,12 +35,14 @@ load(){
 }
   openNew() {
     this.productDialog = true;
+    this.exp = true;
     this.Cliant = {};
     this.Numpi = 0;
   }
 
   edit(val: any) {
     this.productDialog = true;
+    this.exp = true;
     this.Cliant = val;
     this.Numpi = 1;
   }
@@ -49,6 +54,13 @@ load(){
     this.serice.addcalender(this.events).subscribe((res) => alert(res));
     this.load();
 
+  }
+  comptecliant(val:any){
+    this.serice.CompteCliant(val).subscribe((dep) => {
+      this.Compte = dep;
+      this.productDialog = true;
+      this.exp = false;
+    });
   }
   PrintXLS(){
     /* pass here the table id */

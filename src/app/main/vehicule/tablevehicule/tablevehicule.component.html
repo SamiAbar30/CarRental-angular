@@ -4,7 +4,7 @@
       <button
         pButton
         pRipple
-        label="New"
+        label="nouveau"
         icon="pi pi-plus"
         class="p-button-success p-mr-2"
         (click)="openNew()"
@@ -51,7 +51,7 @@
   >
     <ng-template pTemplate="caption">
       <div class="p-d-flex p-ai-center p-jc-between">
-        <h5 class="p-m-0">Manage Products</h5>
+        <h5 class="p-m-0">list Vehicules</h5>
         <span class="p-input-icon-left">
           <i class="pi pi-search"></i>
           <input
@@ -117,7 +117,7 @@
             pButton
             pRipple
             icon="pi pi-trash"
-            class="p-button-rounded p-button-warning"
+            class="p-button-rounded p-button-danger"
             (click)="delet(Vehicule.Immatricule)"
           ></button>
           <button
@@ -140,7 +140,6 @@
 <p-dialog
 *ngIf="Dialog"
   [(visible)]="Dialog"
-  header="papier Details"
   [modal]="true"
   styleClass="p-fluid"
 >

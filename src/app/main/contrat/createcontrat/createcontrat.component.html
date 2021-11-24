@@ -252,6 +252,7 @@
   </div>
 </div>
 <p-dialog
+*ngIf="Dialog1"
   [(visible)]="Dialog1"
   header=" Details"
   [modal]="true"
@@ -263,6 +264,7 @@
   ></app-voituredispo>
 </p-dialog>
 <p-dialog
+*ngIf="Dialog2"
   [(visible)]="Dialog2"
   header=" Details"
   [modal]="true"
@@ -274,10 +276,12 @@
   ></app-cliantdispo>
 </p-dialog>
 <p-dialog
+*ngIf="Dialog3"
   [(visible)]="Dialog3"
   header=" Details"
   [modal]="true"
   styleClass="p-fluid"
+ 
 >
   <app-cliantdispo
     (Client)="outputcliant2($event)"

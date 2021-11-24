@@ -11,10 +11,11 @@ import * as XLSX from 'xlsx';
 })
 export class ContratComponent implements OnInit {
   Dialog: boolean;
-
+  exp: boolean = false;
   Contrats: Contrats[];
 
-  Contrat: Contrats;
+  Contrat: Contrats={};
+  PContrat: Contrats={};
   Numpi: any;
   events:calender[]=[];
   title = ' Contrat';
@@ -34,6 +35,13 @@ export class ContratComponent implements OnInit {
 
   openNew() {
     this.Dialog = true;
+    this.exp = true;
+  }
+
+  prolongation(val:any){
+    this.PContrat=val;
+    this.Dialog = true;
+    this.exp = false;
   }
 
 

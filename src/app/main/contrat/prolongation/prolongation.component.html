@@ -1,1 +1,102 @@
-<p>prolongation works!</p>
+<div class="grid">
+  <div class="col-12">
+    <div class="flex flex-wrap card-container blue-container">
+<div class="col-12 md:col-12 lg:col-3">
+    <button
+      pButton
+      pRipple
+      type="button"
+      label="Success"
+      class="p-button-outlined p-button-success"
+      (click)="Success()"
+    
+    ></button>
+   
+  </div>
+  </div>
+  </div>
+<div class="col-6">
+    <p-fieldset legend="Carte grise">
+      <div class="grid formgrid p-fluid">
+        <div class="field mb-4 col-12">
+          <label for="deree" class="font-medium">duree jours</label
+          ><input
+            [(ngModel)]="this.Duree"
+            name="deree"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+            (ngModelChange)="OnChangeduree($event)"
+          />
+        </div>
+        <div class="field mb-4 col-12 md:col-6">
+          <label for="dateroutur">date retour</label>
+          <p-calendar
+            [(ngModel)]="this.Duree_retour"
+            [showIcon]="true"
+            inputId="dateroutur"
+          ></p-calendar>
+        </div>
+      </div>
+    </p-fieldset>
+  </div>
+  <div class="col-6">
+    <p-fieldset legend="autorisation de circulation">
+      <div class="grid formgrid p-fluid">
+        <div class="field mb-4 col-12 md:col-6">
+          <label for="prix" class="font-medium">prix par jour</label
+          ><input
+            [(ngModel)]="Contrats.Prix"
+            name="prix"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+            (ngModelChange)="OnChangeprix($event)"
+          />
+        </div>
+        <div class="field mb-4 col-12 md:col-6">
+          <label for="retour" class="font-medium"
+            >retour alert avant (x jours)</label
+          ><input
+            [(ngModel)]="Contrats.alert_rotour"
+            name="retour"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+          />
+        </div>
+        <div class="field mb-4 col-12 md:col-6">
+          <label for="montantP" class="font-medium">montant a payer</label
+          ><input
+          [(ngModel)]="montantapayer"
+            name="montantP"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+            (ngModelChange)="OnChangemontantP($event)"
+          />
+        </div>
+        <div class="field mb-4 col-12 md:col-6">
+          <label for="reste" class="font-medium">le reste du montant</label
+          ><input
+            [(ngModel)]=" this.Contrats.restmontant"
+            name="reste"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+          />
+        </div>
+        <div class="field mb-4 col-12">
+          <label for="total" class="font-medium">total</label
+          ><input
+            [(ngModel)]="this.Contrats.Total"
+            name="total"
+            type="text"
+            pinputtext=""
+            class="p-inputtext p-component p-element"
+          />
+        </div>
+      </div>
+    </p-fieldset>
+  </div>
+</div>

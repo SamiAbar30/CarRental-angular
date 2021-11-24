@@ -3,7 +3,6 @@ import { PapierComponent } from './main/vehicule/papier/papier.component';
 import { StatistiquesvehiclesComponent } from './main/vehicule/statistiquesvehicles/statistiquesvehicles.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateclientComponent } from './main/client/createclient/createclient.component';
 import { TableclientComponent } from './main/client/tableclient/tableclient.component';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { CreatevehiculeComponent } from './main/vehicule/createvehicule/createvehicule.component';
@@ -16,6 +15,7 @@ import { AlerteComponent } from './main/alerte/alerte.component';
 import { UserComponent } from './main/user/user.component';
 import { AgenceComponent } from './main/agence/agence.component';
 import { CalenderComponent } from './main/calender/calender.component';
+import { CreateclientComponent } from './main/client/tableclient/createclient/createclient.component';
 
 const routes: Routes = [
   {path:'agence',component:AgenceComponent},

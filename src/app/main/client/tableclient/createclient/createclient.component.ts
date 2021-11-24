@@ -1,9 +1,10 @@
 import { DatePipe } from '@angular/common';
-import { calender } from './../../../calender';
+
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
-import { Clients } from './../../../Clients';
+import { Clients } from 'src/app/Clients';
 import { Observable, Subscriber } from 'rxjs';
+import { calender } from 'src/app/calender';
 
 @Component({
   selector: 'app-createclient',
@@ -33,12 +34,11 @@ export class CreateclientComponent implements OnInit{
   type_PI: any[] = [];
   selectedSexe: any={name: ''};
   selectedtype_PI: any={name: ''};
-
   datenaissance: Date=new Date();
   validite: Date=new Date();
   delevrele: Date=new Date();
   Validite_pi: Date=new Date();
-events:calender[]=[];
+  events:calender[]=[];
   constructor(private serice: SharedService,public datepipe: DatePipe) {}
 
   ngOnInit(): void {

@@ -38,22 +38,22 @@ export class PapierComponent implements OnInit {
   load(Immatricule:any) {
     this.serice.getpapier(this.Immatricule).subscribe((dep) => {
       this.papiers = dep;
-     
+      this.loadpap();
     });
 
   }
   loadpap() {
-    this.delevreleAssurance= new Date(this.papiers[0].date_debut_assurance?.toString()??'') ;
-    this.datefinAssurance=new Date(this.papiers[0].date_fin_assurance?.toString()??'') ;
+    this.delevreleAssurance= new Date(this.papiers[0].date_debut_assurance?.toString()??new Date()) ;
+    this.datefinAssurance=new Date(this.papiers[0].date_fin_assurance?.toString()??new Date()) ;
 
-    this.delevrelevisite=new Date(this.papiers[0].date_debut_visite?.toString()??'') ;
-     this.datefinvisite=new Date(this.papiers[0].date_fin_visite?.toString()??'') ;
+    this.delevrelevisite=new Date(this.papiers[0].date_debut_visite?.toString()??new Date()) ;
+     this.datefinvisite=new Date(this.papiers[0].date_fin_visite?.toString()??new Date()) ;
 
-     this.delevrelegrise=new Date(this.papiers[0].date_debut_grise?.toString()??'') ;
-    this.datefingrise=new Date(this.papiers[0].date_fin_grise ?.toString()??'') ;
+     this.delevrelegrise=new Date(this.papiers[0].date_debut_grise?.toString()??new Date()) ;
+    this.datefingrise=new Date(this.papiers[0].date_fin_grise ?.toString()??new Date()) ;
 
-     this.delevreleautoristion=new Date(this.papiers[0].date_debut_autoristion?.toString()??'') ;
-     this.datefinautoristion=new Date(this.papiers[0].date_fin_autoristion?.toString()??'') ;
+     this.delevreleautoristion=new Date(this.papiers[0].date_debut_autoristion?.toString()??new Date()) ;
+     this.datefinautoristion=new Date(this.papiers[0].date_fin_autoristion?.toString()??new Date()) ;
     
      this.alertAssurance=this.item.alertAssurance;
      this.alertvisite=this.item.alertvisite;

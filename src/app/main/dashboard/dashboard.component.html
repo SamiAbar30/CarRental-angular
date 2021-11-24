@@ -1,11 +1,11 @@
 <div class="flex flex-column flex-auto">
   <div class="">
     <div class="grid">
-      <div class="col-12 lg:col-6 xl:col-3">
-        <div class="surface-card shadow-2 p-3 border-1 border-50 border-round">
-          <div class="flex justify-content-between mb-3">
+      <div class="col-12 lg:col-6 xl:col-3" >
+        <div class=" image surface-card shadow-2 p-3 border-1 border-50 border-round"  style= " background-image: url('./assets/images/blueback.svg');">
+          <div class=" flex justify-content-between mb-3">
             <div>
-              <span class="block text-500 font-medium mb-3">Orders</span>
+              <span class="block text-500 font-medium mb-3">Voiture disponibles</span>
               <div class="text-900 font-medium text-xl">{{vehiculesoui.length}}</div>
             </div>
             <div
@@ -13,28 +13,29 @@
                 flex
                 align-items-center
                 justify-content-center
-                bg-blue-100
+              
                 border-round
               "
               style="width: 2.5rem; height: 2.5rem"
             >
-              <i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
-            </div>
-          </div>
-          <button
+            <button
           pButton
           pRipple
           icon="pi pi-plus-circle"
           class="p-button-rounded p-button-success p-mr-2"
 (click)="opentable1(vehiculesoui)"
         ></button>
+            </div>
           </div>
+        
+      
+      </div>
       </div>
       <div class="col-12 lg:col-6 xl:col-3">
-        <div class="surface-card shadow-2 p-3 border-1 border-50 border-round">
+        <div class=" image surface-card shadow-2 p-3 border-1 border-50 border-round" style=" background-image: url('./assets/images/greenback.svg');">
           <div class="flex justify-content-between mb-3">
             <div>
-              <span class="block text-500 font-medium mb-3">Orders</span>
+              <span class="block text-500 font-medium mb-3"> Voiture loués</span>
               <div class="text-900 font-medium text-xl">{{vehiculesnone.length}}</div>
             </div>
             <div
@@ -42,27 +43,27 @@
                 flex
                 align-items-center
                 justify-content-center
-                bg-blue-100
+              
                 border-round
               "
               style="width: 2.5rem; height: 2.5rem"
             >
+            <button
+            pButton
+            pRipple
+            icon="pi pi-plus-circle"
+            class="p-button-rounded p-button-success p-mr-2" (click)="opentable1(vehiculesnone)"
+          ></button>
           </div>
           </div>
-          <button
-          pButton
-          pRipple
-          icon="pi pi-plus-circle"
-          class="p-button-rounded p-button-success p-mr-2"
-(click)="opentable1(vehiculesnone)"
-        ></button>
+        
           </div>
       </div>
       <div class="col-12 lg:col-6 xl:col-3">
-        <div class="surface-card shadow-2 p-3 border-1 border-50 border-round">
+        <div class=" image surface-card shadow-2 p-3 border-1 border-50 border-round" style="background-image: url('./assets/images/orangeback.svg');">
           <div class="flex justify-content-between mb-3">
             <div>
-              <span class="block text-500 font-medium mb-3">Orders</span>
+              <span class="block text-500 font-medium mb-3">Prochaine retour</span>
               <div class="text-900 font-medium text-xl">{{vehiculesproch.length}}</div>
             </div>
             <div
@@ -70,28 +71,28 @@
                 flex
                 align-items-center
                 justify-content-center
-                bg-blue-100
+                
                 border-round
               "
               style="width: 2.5rem; height: 2.5rem"
             >
-            <i class="pi pi-inbox text-cyan-500 text-xl"></i>
+            <button
+            pButton
+            pRipple
+            icon="pi pi-plus-circle"
+            class="p-button-rounded p-button-success p-mr-2"
+  (click)="opentable1(vehiculesproch)"
+          ></button>
             </div>
           </div>
-          <button
-          pButton
-          pRipple
-          icon="pi pi-plus-circle"
-          class="p-button-rounded p-button-success p-mr-2"
-(click)="opentable1(vehiculesproch)"
-        ></button>
+          
           </div>
       </div>
       <div class="col-12 lg:col-6 xl:col-3">
-        <div class="surface-card shadow-2 p-3 border-1 border-50 border-round">
+        <div class=" image surface-card shadow-2 p-3 border-1 border-50 border-round" style="background-image: url('./assets/images/redback.svg');">
           <div class="flex justify-content-between mb-3">
             <div>
-              <span class="block text-500 font-medium mb-3">Orders</span>
+              <span class="block text-500 font-medium mb-3">voitures retournees</span>
               <div class="text-900 font-medium text-xl">{{vehiculesKM.length}}</div>
             </div>
             <div
@@ -99,28 +100,28 @@
                 flex
                 align-items-center
                 justify-content-center
-                bg-blue-100
+           
                 border-round
               "
               style="width: 2.5rem; height: 2.5rem"
             >
-
+            <button
+            pButton
+            pRipple
+            icon="pi pi-plus-circle"
+            class="p-button-rounded p-button-success p-mr-2"
+  (click)="opentable2(vehiculesKM)"
+          ></button>
             </div>
           </div>
-          <button
-          pButton
-          pRipple
-          icon="pi pi-plus-circle"
-          class="p-button-rounded p-button-success p-mr-2"
-(click)="opentable2(vehiculesKM)"
-        ></button>
+         
           </div>
       </div>
 
       <div class="col-12 xl:col-6">
         <div class="surface-card shadow-2 border-round p-4">
           <div class="card">
-            <h5>Vertical</h5>
+            <h5>depances-revenuees par mois</h5>
             <p-chart
               type="bar"
               [data]="basicData"
@@ -132,7 +133,7 @@
       <div class="col-12 xl:col-6">
         <div class="surface-card shadow-2 border-round p-4">
           <div class="card">
-            <h5>Line Styles</h5>
+            <h5>contrat par mois</h5>
             <p-chart
               type="line"
               [data]="lineStylesData"

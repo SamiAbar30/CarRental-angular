@@ -5,7 +5,7 @@ import { Observable, observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  readonly APIUrl="https://localhost:5001/api";
+  readonly APIUrl="http://test2022-001-site1.ftempurl.com/api";
   constructor(private http:HttpClient) { }
   //dashboard
   vehiculesoui():Observable<any[]>{
@@ -55,6 +55,9 @@ getcalender():Observable<any[]>{
  return this.http.post(this.APIUrl+'/calender',val);
 }
 //Clients
+CompteCliant(val:any):Observable<any[]>{
+  return this.http.get<any>( this.APIUrl+'/Clients/CompteCliant/'+val);
+}
 getClients():Observable<any[]>{
   return this.http.get<any>( this.APIUrl+'/Clients');
 }
@@ -95,6 +98,9 @@ getContrats():Observable<any[]>{
 addContrat(val:any){
  return this.http.post(this.APIUrl+'/Contrats',val);
 }
+updateContrat(val:any){
+  return this.http.put(this.APIUrl+'/Contrats',val);
+ }
 deleteContrat(val:any){
  return this.http.delete(this.APIUrl+'/Contrats/'+val);
 }

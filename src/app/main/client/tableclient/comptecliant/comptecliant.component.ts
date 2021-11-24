@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-comptecliant',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comptecliant.component.scss']
 })
 export class ComptecliantComponent implements OnInit {
-
+ @Input() items:any[];
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

@@ -23,24 +23,19 @@ import { CliantdispoComponent } from './main/contrat/createcontrat/cliantdispo/c
 import { AlerteComponent } from './main/alerte/alerte.component';
 import { AdduserComponent } from './main/user/adduser/adduser.component';
 import { StatistiquesvehiclesComponent } from './main/vehicule/statistiquesvehicles/statistiquesvehicles.component';
-
 import { CalenderComponent } from './main/calender/calender.component';
 import { PrimengModule } from './primeng/primeng.module';
 import { ButtonModule } from 'primeng/button';
 import { HeaderComponent } from './header/header.component';
 import { ChartModule } from 'primeng/chart';
 import { DatePipe } from '@angular/common';
-
 import {FullCalendarModule} from 'primeng/fullcalendar';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { TableupdateKMComponent } from './main/dashboard/tableupdate-km/tableupdate-km.component'; // a plugin!
 import { TableVComponent } from './main/dashboard/tablevehicule/tableV.component';
-
-import { RenderComponent } from './main/contrat/render/render.component';
 import { ProlongationComponent } from './main/contrat/prolongation/prolongation.component';
 import { ComptecliantComponent } from './main/client/tableclient/comptecliant/comptecliant.component';
-import { ReglomentComponent } from './main/client/tableclient/regloment/regloment.component';
 import { CreateclientComponent } from './main/client/tableclient/createclient/createclient.component';
 
 
@@ -73,9 +68,8 @@ import { CreateclientComponent } from './main/client/tableclient/createclient/cr
     TableupdateKMComponent,
     TableVComponent,
     ComptecliantComponent,
-    RenderComponent,
     ProlongationComponent,
-    ReglomentComponent
+
   ],
   imports: [
     BrowserModule,

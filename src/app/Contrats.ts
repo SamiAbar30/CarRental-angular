@@ -18,6 +18,7 @@
           alert_rotour ?:number;
           Total ?:number;
           facturé ?:boolean;
+          montantPayé ?:number;
           restmontant ?:number;
 
     }

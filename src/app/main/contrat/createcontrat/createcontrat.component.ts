@@ -37,6 +37,7 @@ export class CreatecontratComponent implements OnInit {
     this.Duree_depart=new Date();
     this.Duree_retour=new Date(this.Duree_depart);
     this.Contrats.Duree_retour=this.Duree_retour.setDate(this.Duree_retour.getDate() + Number(event)).toString();
+  
   }
   OnChangeDuree_depart(event: any){
     var Duree_retour:Date= new Date(event);
@@ -89,7 +90,7 @@ export class CreatecontratComponent implements OnInit {
     this.Contrats.numpi2 = this.cliant2.Numpi;
     this.Contrats.Duree_depart =  this.datepipe.transform( this.Duree_depart,"yyyy-MM-dd")?.toString();
     this.Contrats.Duree_retour = this.datepipe.transform( this.Duree_retour,"yyyy-MM-dd")?.toString();
-   
+    this.Contrats.montantPayé=this.montantapayer;
       this.serice.addContrat(this.Contrats).subscribe((res) => alert(res));
       var events=
         { title: localStorage.getItem('login')+' updatecontrat', start: new Date().toString() };

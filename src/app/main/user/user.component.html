@@ -26,6 +26,6 @@
 </ng-template>
 </p-table>
 
-<p-dialog [(visible)]="productDialog"  header="user Details" [modal]="true" styleClass="p-fluid">
+<p-dialog *ngIf="productDialog" [(visible)]="productDialog"  header="user Details" [modal]="true" styleClass="p-fluid">
   <app-adduser [item]="user" [Numpi]="Numpi"></app-adduser>
 </p-dialog>

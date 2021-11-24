@@ -2,7 +2,7 @@
 <div class="card p-2">
   <p-toolbar styleClass="p-mb-4">
       <ng-template pTemplate="left">
-          <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+          <button pButton pRipple label="nouveau" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
       </ng-template>
 
       <ng-template pTemplate="right">
@@ -27,7 +27,7 @@
       currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
       <ng-template pTemplate="caption">
         <div class="p-d-flex p-ai-center p-jc-between">
-            <h5 class="p-m-0">Manage Products</h5>
+            <h5 class="p-m-0">list des cliants</h5>
             <span class="p-input-icon-left">
                 <i class="pi pi-search"></i>
                 <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Search..." />
@@ -58,11 +58,13 @@
               <td>{{Client.Tel}}</td>
             <td>
                   <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="edit(Client)"></button>
-                  <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delet(Client.Numpi)"></button>
-              </td>
+                  <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="delet(Client.Numpi)"></button>
+                  <button pButton pRipple icon="pi pi-user" class="p-button-rounded p-button-warning" (click)="comptecliant(Client.Numpi)"></button>
+            
+                </td>
           </tr>
       </ng-template>
-      <ng-template pTemplate="summary">
+      <ng-template pTemplate="summary" *ngif>
           <div class="p-d-flex p-ai-center p-jc-between">
               In total there are {{Cliants ? Cliants.length : 0 }} Cliants.
           </div>
@@ -70,10 +72,9 @@
   </p-table>
 </div>
 
-<p-dialog [(visible)]="productDialog"  header="Cliant Details" [modal]="true" styleClass="p-fluid">
-  <app-createclient [item]="Cliant" [Numpi]="Numpi"></app-createclient>
+<p-dialog *ngIf="productDialog"
+[(visible)]="productDialog"header="Cliant Details" [modal]="true" styleClass="p-fluid">
+  <app-createclient *ngIf="exp" [item]="Cliant" [Numpi]="Numpi"></app-createclient>
+  <app-comptecliant *ngIf="!exp" [items]="Compte"></app-comptecliant>
 </p-dialog>
-
-
-
 
