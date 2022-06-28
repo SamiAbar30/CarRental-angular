@@ -94,15 +94,18 @@
             </div>
     </div>
     <div class="col-12 lg:col-10">
-      <p-fieldset legend="piece identite">
+      <p-fieldset legend="les information">
         <div class="grid formgrid p-fluid">
           <div class="field mb-4 col-12 md:col-6">
             <label for="Immatricule" class="font-medium">Immatricule</label
-            ><input  [(ngModel)]="this.item.Immatricule"
+            ><input
+              required
+            [(ngModel)]="this.item.Immatricule"
               id="Immatricule"
               type="text"
-              pinputtext=""
+
               class="p-inputtext p-component p-element"
+
             />
           </div>
           <div class="field mb-4 col-12 md:col-6">

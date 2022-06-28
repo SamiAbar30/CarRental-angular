@@ -114,7 +114,7 @@
     <div class="col-12 lg:col-10">
       <p-fieldset legend="client-type">
         <div class="p-field-radiobutton">
-          <input type="radio" name="radio" id="" value="particulier" [(ngModel)]="this.item.Clienttype" />
+          <input type="radio" name="radio" id="" value="particulier" checked [(ngModel)]="this.item.Clienttype" />
           <label for="city1">particulier</label>
           <input type="radio" name="radio" id="" value="professionnel"  [(ngModel)]="this.item.Clienttype"/>
           <label for="city2">professionnel</label>
@@ -123,12 +123,12 @@
       <p-fieldset legend="Conducteur">
         <div class="grid formgrid p-fluid">
           <div class="field mb-4 col-12">
-            <label for="bio" class="font-medium">sexe</label>
-            
+            <label for="bio" class="font-medium">Civilite</label>
+
             <p-dropdown
               [options]="sexe"
               [(ngModel)]="selectedSexe"
-              placeholder="Select a City"
+              placeholder="Select Civilite "
               optionLabel="name"
               [showClear]="true"
             ></p-dropdown>
@@ -194,7 +194,7 @@
           </div>
           <div class="field mb-4 col-12 md:col-6">
             <label for="numpi" class="font-medium">num PI</label
-            ><input name="numpi" type="text" pInputText [(ngModel)]="item.Numpi" />
+            ><input name="numpi" type="text" required  pInputText [(ngModel)]="item.Numpi" />
           </div>
           <div class="field mb-4 col-12 md:col-6">
             <label for="validite">validite</label>
@@ -278,7 +278,7 @@
           </div>
           <div class="field mb-4 col-12 md:col-6">
             <label for="email" class="font-medium">email</label
-            ><input id="email" type="text" pInputText />
+            ><input id="email" type="text" pInputText  [(ngModel)]="this.item"/>
           </div>
         </div>
       </p-fieldset>

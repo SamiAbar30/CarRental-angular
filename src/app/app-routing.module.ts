@@ -22,16 +22,19 @@ const routes: Routes = [
   {path:'calender',component:CalenderComponent},
   {path:'Settings',component:UserComponent},
   {path:'alerte',component:AlerteComponent},
+  {path:'',component:DashboardComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'contrat',component:ContratComponent},
   {path:'client/createclient',component:CreateclientComponent},
   {path:'client/tableclient',component:TableclientComponent},
-  {path:'vehicule',component:VehiculeComponent,children:[
+  {path:'vehicule',component:VehiculeComponent,
+  children:[
   {path:'createvehicule',component:CreatevehiculeComponent},
   {path:'statistiquesvehicles',component:StatistiquesvehiclesComponent},
   {path:'tablevehicule',component:TablevehiculeComponent},
   {path:'vidange',component:VidangeComponent},
-  {path:'entretien',component:EntretienComponent}]},
+  {path:'entretien',component:EntretienComponent}]
+},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

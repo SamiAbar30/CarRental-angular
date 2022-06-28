@@ -68,17 +68,19 @@ export class CreateclientComponent implements OnInit{
     this.item.Type_pi = this.selectedtype_PI.name;
   }
   AddClients() {
+    if(this.item.Numpi?.toString()){
    this.fullitem();
 
    this.serice.addClients(this.item).subscribe((res) => alert(res));
-    var events={ title: localStorage.getItem('login')+' Addcliant', start: new Date().toString() };
+    var events={ title: localStorage.getItem('CIN')+' Addcliant', start: new Date().toString() };
     this.serice.addcalender(events).subscribe((res) => alert(res));
+    }
   }
 
   updateClients() {
   this.fullitem();
     this.serice.updateClients(this.item).subscribe((res) => alert(res));
-    var events={ title: localStorage.getItem('login')+' updatecliant', start: new Date().toString() };
+    var events={ title: localStorage.getItem('CIN')+' updatecliant', start: new Date().toString() };
     this.serice.addcalender(events).subscribe((res) => alert(res));
   }
   async onimage1($event: any) {

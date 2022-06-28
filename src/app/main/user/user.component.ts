@@ -36,7 +36,7 @@ edit(user:UserA) {
 }
 delet(user:any){
  var events=
-    { title: localStorage.getItem('login')+' deleteuser', start: new Date().toString() };
+    { title: localStorage.getItem('CIN')+' deleteuser', start: new Date().toString() };
   this.serice.addcalender(events).subscribe((res) => alert(res));
   this.serice.deleteUserA(user).subscribe((res) => alert(res));
   this.load();

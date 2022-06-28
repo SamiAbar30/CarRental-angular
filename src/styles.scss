@@ -1,1 +1,18 @@
 a{text-decoration: none;}
+* {
+  padding: 0;
+  margin: 0;
+  }
+app-contratpdf {
+  display: none;
+}
+
+@media print {
+  app-header,app-tablecontrat {
+    display: none;
+  }
+  app-contratpdf {
+    display: block;
+  }
+}
+

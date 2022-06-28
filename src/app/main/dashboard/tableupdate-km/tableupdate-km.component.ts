@@ -17,10 +17,10 @@ export class TableupdateKMComponent implements OnInit {
 
     var dashV=
     { idContrats: val.idContrats , Kilometrage: this.Kilometrage, Immatricule:  val.Immatricule};
-    console.log(dashV);
+
      this.serice.updatevehiculesKM(dashV).subscribe((res) => alert(res));
     var events=
-      { title: localStorage.getItem('login')+' update KMvehicules', start: new Date().toString() };
+      { title: localStorage.getItem('CIN')+' update KMvehicules', start: new Date().toString() };
     this.serice.addcalender(events).subscribe((res) => alert(res));
   }
 }

@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   constructor() { }
   hiddenul?:boolean=true;
-
+  Dialog: boolean = false;
   displaul()
   {
   this.hiddenul=!this.hiddenul;
@@ -17,6 +17,10 @@ export class HeaderComponent implements OnInit {
 
   calendarPlugins = [dayGridPlugin]; // important!
   ngOnInit(): void {
+
+  }
+  openNew() {
+    this.Dialog = true;
 
   }
   disconnect(){

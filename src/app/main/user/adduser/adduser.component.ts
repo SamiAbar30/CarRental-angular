@@ -17,12 +17,13 @@ export class AdduserComponent implements OnInit {
   ngOnInit(): void {
   }
   Adduser() {
-
+    if(this.item.CIN?.toString()){
     this.serice.addUserA(this.item).subscribe((res) => alert(res));
     var events=
-      { title: localStorage.getItem('login')+' Adduser', start: new Date().toString() }
+      { title: localStorage.getItem('CIN')+' Adduser', start: new Date().toString() }
     ;
     this.serice.addcalender(events).subscribe((res) => alert(res));
+    }
 
   }
 
@@ -30,7 +31,7 @@ export class AdduserComponent implements OnInit {
 
     this.serice.updateUserA(this.item).subscribe((res) => alert(res));
     var events=[
-      { title: localStorage.getItem('login')+' updateuser', start: new Date().toString() }
+      { title: localStorage.getItem('CIN')+' updateuser', start: new Date().toString() }
     ]
     this.serice.addcalender(events).subscribe((res) => alert(res));
 

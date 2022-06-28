@@ -20,12 +20,5 @@ load(){
   this.serice.getAlerte().subscribe((dep) => {
     this.Alertes = dep;
   });
-
-}
-cli(){
-
-  console.log(this.Alertes);
-  console.log(this.Alertes.Table1);
-
 }
 }

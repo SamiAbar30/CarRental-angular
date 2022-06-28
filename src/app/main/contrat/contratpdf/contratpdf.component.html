@@ -1,0 +1,205 @@
+<div id="contrat" style="height: 100%; width: 100%;">
+  <div style="text-align: center; margin: 0;"> <img [src]="Agence[0].Logo"  width="100px" height="100px" alt=""
+      style="position: relative; left: 50px;display: inline-block;">
+    <h4 style="display: inline-block;float: right;">Num contrat :{{Contrats.idContrats}}</h4>
+  </div>
+  <div class="b" style="background-color: #add8e6;">informations 1er conducteur</div>
+  <div>
+    <div class="display">
+      <table>
+        <tr>
+          <th class="padd">Nom</th>
+          <td class="padd">{{Cliant1.Nom}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd">prenom</th>
+          <td class="padd">{{Cliant1.Prenom}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd">Adresse</th>
+          <td class="padd">{{Cliant1.Adresse}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd">date de naissance</th>
+          <td class="padd">{{Cliant1.Date_de_naissance?.toString()|slice:0:10}}</td>
+
+        </tr>
+      </table>
+    </div>
+    <div class="display">
+      <table>
+        <tr>
+          <th class="padd">Cin</th>
+          <td class="padd">{{Cliant1.Numpi}}</td>
+        </tr>
+        <tr>
+          <th class="padd">Passeport</th>
+          <td class="padd">{{Cliant1.Numpi}}</td>
+        </tr>
+        <tr>
+          <th class="padd">permis</th>
+          <td class="padd">{{Cliant1.Numpermis}}</td>
+        </tr>
+        <tr>
+          <th class="padd">Tel</th>
+          <td class="padd">{{Cliant1.Tel}}</td>
+
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="b" style="background-color: #add8e6;">informations 2er conducteur</div>
+  <div>
+    <div class="display">
+      <table>
+        <tr>
+          <th class="padd">Nom</th>
+          <td class="padd">{{Cliant2.Nom}}</td>
+        </tr>
+        <tr>
+          <th class="padd">prenom</th>
+          <td class="padd">{{Cliant2.Prenom}}</td>
+        </tr>
+        <tr>
+          <th class="padd">Adresse</th>
+          <td class="padd">{{Cliant2.Adresse}}</td>
+        </tr>
+        <tr>
+          <th class="padd">date de naissance</th>
+          <td class="padd">{{Cliant2.Date_de_naissance?.toString()|slice:0:10}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="display">
+      <table>
+        <tr>
+          <th class="padd">Cin</th>
+          <td class="padd">{{Cliant2.Numpi}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd">Passeport</th>
+          <td class="padd">{{Cliant2.Numpi}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd">permis</th>
+          <td class="padd">{{Cliant2.Numpermis}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd">Tel</th>
+          <td class="padd">{{Cliant2.Tel}}</td>
+
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="b" style="background-color: #add8e6;">information de la voiture</div>
+  <div>
+    <div class="display">
+      <table>
+        <tr>
+          <th class="padd">marque</th>
+          <td class="padd">{{Contrats.Marque}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd">lieu de depart</th>
+          <td class="padd">{{Contrats.Lieu_de_livraison}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd">jour/heure depart</th>
+          <td class="padd">{{Contrats.Duree_depart?.toString()|slice:0:10}}</td>
+
+        </tr>
+
+      </table>
+    </div>
+    <div class="display">
+      <table>
+        <tr>
+          <th class="padd">matricule</th>
+          <td class="padd">{{Contrats.Immatricule}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd">lieu de retour</th>
+          <td class="padd">{{Contrats.Lieu_de_retour}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd">jour/heure Retour</th>
+          <td class="padd">{{Contrats.Duree_retour?.toString()|slice:0:10}}</td>
+
+        </tr>
+
+      </table>
+    </div>
+  </div>
+  <div>
+    <div class="display">
+      <table class="borderclass">
+        <tr>
+          <th class="padd borderclass">prix/jour</th>
+          <td class="padd borderclass">{{Contrats.Prix}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd borderclass">duree de location</th>
+          <td class="padd borderclass">{{Contrats.Duree}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd borderclass">montant a paye</th>
+          <td class="padd borderclass">{{Contrats["montantPayé"]}}</td>
+
+        </tr>
+        <tr>
+          <th class="padd borderclass">reste du montant</th>
+          <td class="padd borderclass">{{Contrats.restmontant}}</td>
+
+        </tr>
+      </table>
+    </div>
+    <div class="display">
+      <table class="borderclass">
+        <tr>
+          <th class="padd borderclass">cachet de societe</th>
+          <th class="padd borderclass">signature de client</th>
+        </tr>
+        <tr>
+          <td class="padd borderclass" style="height: 100px;"></td>
+          <td class="padd borderclass" style="height: 100px;"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div>
+    <div class="display" style="text-align: center;">
+      <h3>ETAT DU VEHICULE AU DEPART</h3><br><img src="assets/images/car.jpg" width="100%" height="50%"
+        style="max-width: 370px;" alt="" srcset="">
+    </div>
+    <div class="display" style="text-align: center;">
+      <h3>ETAT DU VEHICULE AU RETOUR</h3><img src="assets/images/car.jpg" width="100%" height="50%"
+        style="max-width: 370px;" alt="" srcset="">
+    </div>
+  </div>
+  <div style="position:relative;">
+    <div class="borderclass display" style="height:200px;width: 50%;">
+      <h3>signature de client</h3>
+      <br><br><br><br>
+      <h3>signature de 2eme client</h3>
+    </div>
+    <div class="borderclass display" style="height:200px;width: 50%;position: absolute;">
+      <h3>signature de client</h3>
+    </div>
+  </div>
+  <div style="text-align: center;">
+    <p>RC:{{Agence[0].RC}} IF_F:{{Agence[0].IF_F}} patente:{{Agence[0].Patant}} </p>
+  </div>
+</div>

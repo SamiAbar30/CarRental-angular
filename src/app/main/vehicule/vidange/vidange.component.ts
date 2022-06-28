@@ -36,7 +36,7 @@ export class VidangeComponent implements OnInit {
     this.fulldate();
      this.serice.addVidange(this.Vidange).subscribe((res) => alert(res));
          var events=
-       { title: localStorage.getItem('login')+' addVidange', start: new Date().toString() };
+       { title: localStorage.getItem('CIN')+' addVidange', start: new Date().toString() };
      this.serice.addcalender(events).subscribe((res) => alert(res));
      this.load();
   }
@@ -45,7 +45,7 @@ export class VidangeComponent implements OnInit {
   deleteVidange(val: any) {
     this.serice.deleteVidange(val).subscribe((res) => alert(res));
     var events=
-      { title: localStorage.getItem('login')+' deleteVidange', start: new Date().toString() };
+      { title: localStorage.getItem('CIN')+' deleteVidange', start: new Date().toString() };
     this.serice.addcalender(events).subscribe((res) => alert(res));
     this.load();
 

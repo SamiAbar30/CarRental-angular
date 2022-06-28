@@ -16,7 +16,7 @@ export class TableclientComponent implements OnInit {
   Numpi: any;
   Cliants: Clients[];
   Compte: any[];
-  Cliant: Clients;
+  Cliant: Clients={};
   exp: boolean = false;
 events:calender[]=[];
 title = 'Tableclient';
@@ -41,15 +41,18 @@ load(){
   }
 
   edit(val: any) {
-    this.productDialog = true;
-    this.exp = true;
-    this.Cliant = val;
-    this.Numpi = 1;
+    this.serice.getClient(val).subscribe((dep) => {
+      this.Cliant= dep[0];
+      this.productDialog = true;
+      this.exp = true;
+      this.Numpi = 1;
+    });
+
   }
   delet(val: any) {
     this.serice.deleteClients(val).subscribe((res) => alert(res));
     this.events=[
-      { title: localStorage.getItem('login')+' deletecliant', start: new Date().toString() }
+      { title: localStorage.getItem('CIN')+' deletecliant', start: new Date().toString() }
     ]
     this.serice.addcalender(this.events).subscribe((res) => alert(res));
     this.load();

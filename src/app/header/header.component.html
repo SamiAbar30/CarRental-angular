@@ -78,6 +78,7 @@
             cursor-pointer
             transition-colors transition-duration-150
           "
+          (click)="displaul()"
           routerLink="dashboard"
           ><img
             src="assets/images/icons8-dashboard-layout-48.png"
@@ -105,6 +106,7 @@
             cursor-pointer
             transition-colors transition-duration-150
           "
+          (click)="displaul()"
           routerLink="client/tableclient"
           ><img
             src="assets/images/icons8-user-64-1.png"
@@ -130,12 +132,14 @@
             cursor-pointer
             transition-colors transition-duration-150
           "
+          (click)="displaul()"
           routerLink="vehicule"
-          ><img
+          >
+          <img
             src="assets/images/icons8-car-50-1.png"
             alt="Image"
             height="27"
-            class="mr-2 lg:mr-2" /><span>vehicule</span
+            class="mr-2 lg:mr-2"/><span>vehicule</span
           ><span class="p-ink"></span
         ></a>
       </li>
@@ -156,6 +160,7 @@
             cursor-pointer
             transition-colors transition-duration-150
           "
+          (click)="displaul()"
           routerLink="contrat"
           ><img
             src="assets/images/icons8-terms-and-conditions-50.png"
@@ -181,6 +186,7 @@
             cursor-pointer
             transition-colors transition-duration-150
           "
+          (click)="displaul()"
           routerLink="alerte"
           ><img
             src="assets/images/icons8-warning-shield-50.png"
@@ -206,6 +212,7 @@
             cursor-pointer
             transition-colors transition-duration-150
           "
+          (click)="displaul()"
           routerLink="agence"
           ><img
             src="assets/images/icons8-home-delivery-60.png"
@@ -214,7 +221,7 @@
             class="mr-2 lg:mr-2" /><span>agence</span><span class="p-ink"></span
         ></a>
       </li>
-     
+
       <li>
         <a
           pripple=""
@@ -232,14 +239,12 @@
             cursor-pointer
             transition-colors transition-duration-150
           "
-          routerLink="calender"
-          ><img
-            src="assets/images/calendar-7-48.png"
-            alt="Image"
-            height="25"
-            class="mr-2 lg:mr-2" /><span>calender</span
-          ><span class="p-ink"></span
-        ></a>
+          (click)="displaul()"
+          (click)="openNew()">
+          <img src="assets/images/calendar-7-48.png" alt="Image" height="25" class="mr-2 lg:mr-2" />
+            <span>calender</span>
+            <span class="p-ink"></span>
+          </a>
       </li>
       <li>
         <a
@@ -258,6 +263,7 @@
             cursor-pointer
             transition-colors transition-duration-150
           "
+          (click)="displaul()"
           routerLink="Settings"
           ><img
             src="assets/images/icons8-settings-50.png"
@@ -300,6 +306,7 @@
             cursor-pointer
             transition-colors transition-duration-150
           "
+          (click)="disconnect()"
           >
           <span class="block  font-medium">disconnect</span>
         </a>
@@ -308,3 +315,9 @@
     </ul>
   </div>
 </div>
+<p-dialog *ngIf="Dialog" [(visible)]="Dialog" styleClass="p-fluid"
+  header="Header" [resizable]="false" [modal]="true" [maximizable]="true" appendTo="body" [style]="{width: '100%'}" [contentStyle]="{height: '100vh'}"
+>
+<app-calender></app-calender>
+
+</p-dialog>

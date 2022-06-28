@@ -11,7 +11,7 @@ import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 export class VoituredispoComponent implements OnInit {
   @Output() Vehicule = new EventEmitter<Vehicules>();
   @Output() dialog=new EventEmitter<boolean>();
-  Vehicules: Vehicules[];
+  Vehicules: Vehicules[]=[];
 
   constructor(private serice: SharedService) { }
 
@@ -19,7 +19,7 @@ export class VoituredispoComponent implements OnInit {
     this.load();
   }
   load(){
-    this.serice.getVehicules().subscribe((dep) => {
+    this.serice.Vehiculedisp().subscribe((dep) => {
       this.Vehicules = dep;
     });
   }

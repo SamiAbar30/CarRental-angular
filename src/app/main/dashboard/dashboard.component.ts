@@ -1,29 +1,29 @@
 import { SharedService } from 'src/app/shared.service';
 import { Component, OnInit } from '@angular/core';
-import {PrimeIcons} from 'primeng/api';
+import { PrimeIcons } from 'primeng/api';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   basicData: any;
   lineStylesData: any;
   basicOptions: any;
-  events1: any[]=[];
-  vehiculesoui: any[]=[];
-  vehiculesnone: any[]=[];
-  vehiculesproch: any[]=[];
-  vehiculesKM: any[]=[];
-  revenuees: any[]=[];
-  depances: any[]=[];
-  contrat: any[]=[];
+  events1: any[] = [];
+  vehiculesoui: any[] = [];
+  vehiculesnone: any[] = [];
+  vehiculesproch: any[] = [];
+  vehiculesKM: any[] = [];
+  revenuees: any[] = [];
+  depances: any[] = [];
+  contrat: any[] = [];
   tableV: boolean = false;
-  vehicules: any[]=[];
+  vehicules: any[] = [];
   updatekm: boolean = false;
-  vehiculeKM: any[]=[];
-  Alertes: any={};
-  constructor(private serice: SharedService) { }
+  vehiculeKM: any[] = [];
+  Alertes: any = {};
+  constructor(private serice: SharedService) {}
 
   ngOnInit(): void {
     this.serice.vehiculesoui().subscribe((dep) => {
@@ -55,46 +55,45 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  BasicData(){
-  this.basicData = {
-    labels: ['1','2','3','4','5','6','7','8','9','10','11','12'],
-    datasets: [
+  BasicData() {
+    this.basicData = {
+      labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+      datasets: [
         {
-            label: 'Les revenuees',
-            backgroundColor: '#42A5F5',
-            data:  this.revenuees
+          label: 'Les revenuees',
+          backgroundColor: '#42A5F5',
+          data: this.revenuees,
         },
         {
-            label: 'Les depances',
-            backgroundColor: '#FFA726',
-            data:  this.depances
-        }
-    ]
-};
-}
-LineStylesData(){
-  this.lineStylesData = {
-    labels:['1','2','3','4','5','6','7','8','9','10','11','12'],
-    datasets: [
+          label: 'Les depances',
+          backgroundColor: '#FFA726',
+          data: this.depances,
+        },
+      ],
+    };
+  }
+  LineStylesData() {
+    this.lineStylesData = {
+      labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+      datasets: [
         {
-            label: 'contrat',
-            data:this.contrat,
-            fill: true,
-            borderColor: '#FFA726',
-            tension: .4,
-            backgroundColor: 'rgba(255,167,38,0.2)'
-        }
-    ]
-};
-}
+          label: 'contrat',
+          data: this.contrat,
+          fill: true,
+          borderColor: '#FFA726',
 
-opentable1(vare:any[]){
-  this.tableV = true;
-  this.vehicules = vare;
+          backgroundColor: 'rgba(255,167,38,0.2)',
+        },
+      ],
+    };
+  }
 
-}
-opentable2(vare:any[]){
-  this.updatekm = true;
-  this.vehiculeKM = vare;
-}
+  opentable1(vare: any[]) {
+    this.tableV = true;
+    this.vehicules = vare;
+  }
+  opentable2(vare: any[]) {
+    this.updatekm = true;
+    this.vehiculeKM = vare;
+  }
 }

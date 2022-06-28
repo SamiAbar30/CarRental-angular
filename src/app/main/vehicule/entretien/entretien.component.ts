@@ -33,11 +33,11 @@ export class EntretienComponent implements OnInit {
   }
   AddEntretien() {
     this.fulldate();
-   
+
 
     this.serice.addEntretien(this.Entretien).subscribe((res) => alert(res));
     var events = {
-      title: localStorage.getItem('login') + ' addEntretien',
+      title: localStorage.getItem('CIN') + ' addEntretien',
       start: new Date().toString(),
     };
 
@@ -47,7 +47,7 @@ export class EntretienComponent implements OnInit {
   delet(val: any) {
     this.serice.deleteEntretien(val).subscribe((res) => alert(res));
     var events = {
-      title: localStorage.getItem('login') + ' deleteEntretien',
+      title: localStorage.getItem('CIN') + ' deleteEntretien',
       start: new Date().toString(),
     };
 

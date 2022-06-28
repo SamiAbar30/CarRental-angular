@@ -28,7 +28,7 @@ import { PrimengModule } from './primeng/primeng.module';
 import { ButtonModule } from 'primeng/button';
 import { HeaderComponent } from './header/header.component';
 import { ChartModule } from 'primeng/chart';
-import { DatePipe } from '@angular/common';
+import { DatePipe, CommonModule } from '@angular/common';
 import {FullCalendarModule} from 'primeng/fullcalendar';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -37,7 +37,9 @@ import { TableVComponent } from './main/dashboard/tablevehicule/tableV.component
 import { ProlongationComponent } from './main/contrat/prolongation/prolongation.component';
 import { ComptecliantComponent } from './main/client/tableclient/comptecliant/comptecliant.component';
 import { CreateclientComponent } from './main/client/tableclient/createclient/createclient.component';
-
+import { ContratpdfComponent } from './main/contrat/contratpdf/contratpdf.component';
+import { TablecontratComponent } from './main/contrat/tablecontrat/tablecontrat.component';
+import {KeyFilterModule} from 'primeng/keyfilter';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,8 @@ import { CreateclientComponent } from './main/client/tableclient/createclient/cr
     TableVComponent,
     ComptecliantComponent,
     ProlongationComponent,
+    ContratpdfComponent,
+    TablecontratComponent,
 
   ],
   imports: [
@@ -80,6 +84,8 @@ import { CreateclientComponent } from './main/client/tableclient/createclient/cr
     ChartModule,
     FullCalendarModule,
     ButtonModule,
+    KeyFilterModule,
+    CommonModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

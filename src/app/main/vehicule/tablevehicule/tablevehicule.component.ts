@@ -12,7 +12,7 @@ import * as XLSX from 'xlsx';
 export class TablevehiculeComponent implements OnInit {
   Dialog: boolean = false;
   Vehicules: Vehicules[];
-  Vehicule: Vehicules;
+  Vehicule: Vehicules={};
   Numpi: any;
   exp: boolean = false;
   title = 'Tablevehicule';
@@ -42,15 +42,18 @@ export class TablevehiculeComponent implements OnInit {
   }
 
   edit(val: any) {
-    this.Dialog = true;
+    this.serice.getVehicule(val).subscribe((dep) => {
+      this.Vehicule = dep[0];
+      this.Dialog = true;
     this.exp = true;
-    this.Vehicule = val;
     this.Numpi = 1;
+    });
+
   }
   delet(val: any) {
     this.serice.deleteVehicules(val).subscribe((res) => alert(res));
     var events=
-      { title: localStorage.getItem('login')+' deleteVehicules', start: new Date().toString() };
+      { title: localStorage.getItem('CIN')+' deleteVehicules', start: new Date().toString() };
     this.serice.addcalender(events).subscribe((res) => alert(res));
     this.load();
   }

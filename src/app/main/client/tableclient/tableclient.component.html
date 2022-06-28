@@ -57,10 +57,10 @@
               <td>{{Client.Age}}</td>
               <td>{{Client.Tel}}</td>
             <td>
-                  <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="edit(Client)"></button>
+                  <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="edit(Client.Numpi)"></button>
                   <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="delet(Client.Numpi)"></button>
                   <button pButton pRipple icon="pi pi-user" class="p-button-rounded p-button-warning" (click)="comptecliant(Client.Numpi)"></button>
-            
+
                 </td>
           </tr>
       </ng-template>

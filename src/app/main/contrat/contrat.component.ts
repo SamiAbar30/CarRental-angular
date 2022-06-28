@@ -1,73 +1,36 @@
-import { calender } from './../../calender';
-import { SharedService } from './../../shared.service';
 import { Contrats } from './../../Contrats';
-import { Component, OnInit } from '@angular/core';
-import * as XLSX from 'xlsx';
+
+import { Component, OnInit, Input } from '@angular/core';
+import { Clients } from 'src/app/Clients';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-contrat',
   templateUrl: './contrat.component.html',
-  styleUrls: ['./contrat.component.scss']
+  styleUrls: ['./contrat.component.scss'],
 })
 export class ContratComponent implements OnInit {
-  Dialog: boolean;
+  Contrat: Contrats = {};
+  Cliant1: Clients[] = [];
+  Cliant2: Clients[] =[];
   exp: boolean = false;
-  Contrats: Contrats[];
-
-  Contrat: Contrats={};
-  PContrat: Contrats={};
-  Numpi: any;
-  events:calender[]=[];
-  title = ' Contrat';
-  fileName= ' ContratExcelSheet.xlsx';
-  
   constructor(private serice: SharedService) {}
 
-  ngOnInit() {
-    this.load();
+  ngOnInit() {}
+
+   outputvehicule(event: any) {
+
+    this.Contrat = event;
+     this.serice.getClient(this.Contrat.numpi).subscribe((dep) => {
+        this.Cliant1 = dep;
+        this.serice.getClient(this.Contrat.numpi2).subscribe((dep) => {
+          this.Cliant2 = dep;
+          this.exp = true;
+        });
+      });
 
   }
-  load() {
-    this.serice.getContrats().subscribe((dep) => {
-      this.Contrats = dep;
-    });
+  expfun(event: any) {
+    this.exp = event;
   }
-
-  openNew() {
-    this.Dialog = true;
-    this.exp = true;
-  }
-
-  prolongation(val:any){
-    this.PContrat=val;
-    this.Dialog = true;
-    this.exp = false;
-  }
-
-
-  deleteContrat(val: any) {
-    this.serice.deleteContrat(val).subscribe((res) => alert(res));
-    var events=
-      { title: localStorage.getItem('login')+' deletecontrat', start: new Date().toString() };
-    this.serice.addcalender(events).subscribe((res) => alert(res));
-    this.load();
-  }
-
-  filterGlobal(val: any) {}
-
-  hideDialog() {
-    this.Dialog = false;
-  }
-  PrintXLS(){
-    /* pass here the table id */
-    let element = document.getElementById('excel-table');
-    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
-
-    /* generate workbook and add the worksheet */
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-
-    /* save to file */
-    XLSX.writeFile(wb, this.fileName);
- }
 }
